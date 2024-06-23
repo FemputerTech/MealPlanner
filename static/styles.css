@@ -112,6 +112,16 @@ h1 {
   width: 100%;
 }
 
+.searchbar-input::placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
 .searchbar-input:focus {
   outline: 2px solid #92C1FF;
 }
