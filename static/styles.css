@@ -75,13 +75,16 @@ h1 {
 /* ****************** Navbar Styling ****************** */
 .navbar {
   background-color: transparent;
-  padding: 40px 120px 40px 120px;
+  padding: 40px 120px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 40px;
 }
 
 .logo-link {
   display: inline-block; /* Ensures the link takes the size of the logo image */
+  margin: 10px;
 }
 
 .logo-img {
@@ -92,6 +95,29 @@ h1 {
 
 .logo-img:hover {
   opacity: 70%;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchbar-input {
+  font-size: 18px;
+  background-color: #F1F1F1;
+  border-radius: 50px;
+  border: none;
+  padding: 14px 28px;
+  width: 100%;
+}
+
+.searchbar-input:focus {
+  outline: 2px solid #92C1FF;
+}
+
+.searchbar-input:hover {
+  background-color: #E1E1E1;
 }
 
 .navbar-nav {
@@ -112,7 +138,7 @@ h1 {
 .nav-link.active {
   background-color: var(--beet);
   color: var(--beet-text);
-  padding: 14px 28px 14px 28px;
+  padding: 14px 28px;
   border-radius: 50px;
 }
 
