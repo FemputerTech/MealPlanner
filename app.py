@@ -18,6 +18,7 @@ To run the application, execute this script.
 import os
 import flask
 from index import Index
+from search import Search
 
 
 # Initializes the Flask application
@@ -33,6 +34,12 @@ app.add_url_rule('/',
                  view_func=Index.as_view('index'),
                  methods=['GET']
                  )
+
+
+# URL routing for the search functionality 
+app.add_url_rule('/search',
+                 view_func=Search.as_view('search'),
+                 methods=['GET', 'POST'])
 
 
 # Run the application
