@@ -1,0 +1,152 @@
+:root {   
+    font-size: 18px;
+}
+
+body {
+    margin: 0px;
+    color: #211C1B;
+    background-color: #F7E5E3;
+}
+
+.section {
+    margin: 0 120px 0 120px;
+}
+
+/* ****************** Headings ****************** */
+h1 {
+  font-size: 56px;
+  line-height: 64px;
+}
+
+/* ****************** Font Classes ****************** */
+.playfair-display-regular {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-bold {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .playfair-display--black {
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  } 
+
+
+/* ****************** Navbar Styling ****************** */
+.navbar {
+    background-color: transparent;
+    padding: 40px 120px 40px 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-link {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo-img {
+    max-height: 56px;
+    width: auto;
+}
+
+.logo-img:hover {
+  filter: grayscale(20%);
+  opacity: 0.8;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 60px;
+    margin: 10px;
+}
+
+.nav-link {
+    color: #211C1B;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid #211C1B;;
+}
+
+.nav-link.active:hover {
+  border-bottom: 1px solid #AE9492;
+}
+
+.nav-link:hover {
+  color: #AE9492;
+}
+
+/* ****************** Home Styling ****************** */
