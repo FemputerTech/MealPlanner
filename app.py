@@ -38,7 +38,7 @@ app.add_url_rule('/',
 
 # URL routing for the search functionality 
 app.add_url_rule('/search',
-                 view_func=Search.as_view('search'),
+                 view_func=Search.as_view('search', api_key=API_KEY),
                  methods=['GET', 'POST'])
 
 

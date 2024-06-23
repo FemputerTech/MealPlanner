@@ -15,6 +15,20 @@ class Search(MethodView):
     get(): Handles GET requests to the search page.
     post(): Handles POST requests to the search page.
     """
+
+    
+    def __init__(self, api_key):
+        """
+        Initializes the Search class with the API key for Spoonacular.
+        
+        Parameters:
+        ----------
+        api_key : str
+            The API key for accessing the Spoonacular API.
+        """
+        self.api_key = api_key
+    
+
     def get(self):
         """
         Renders the search page.
