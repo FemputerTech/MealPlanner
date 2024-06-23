@@ -2,7 +2,7 @@
 
 ## About
 
-API: [Spoonacular API](https://spoonacular.com/food-api/docs)
+API: [EDAMAM API](https://developer.edamam.com/edamam-docs-recipe-api)
 
 Description: Develop a recipe and meal planning application that helps users find recipes and plan meals.
 
@@ -21,8 +21,9 @@ You can search by food, cuisine, diet, intolerances, and type.
 
 ### Running the application locally
 
-1. create a local environment variable for API_KEY
-   `export API_KEY=<the api key>`
+1. create a local environment variable for APP_ID and APP_KEY
+   `export APP_ID=<the app id>`
+   `export APP_KEY=<the api key>`
 2. create a local environment variable for GOOGLE_APPLICATION_CREDENTIALS
    `export GOOGLE_APPLICATION_CREDENTIALS="cloud-leicht-mleicht-key.json"`
 3. run the with python `python3 app.py`

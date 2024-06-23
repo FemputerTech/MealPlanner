@@ -11,7 +11,8 @@ The application uses Flask to create a web interface and includes several module
 - Delete: Handles the deletion of recipes in weekly meals
 
 Environment Variables:
-- API_KEY: Required for accessing external recipe APIs
+- APP_ID: Required for accessing external recipe APIs.
+- APP_KEY: Required for accessing external recipe APIs
 
 To run the application, execute this script.
 """
@@ -26,7 +27,8 @@ app = flask.Flask(__name__)
 
 
 # Retrieve API key from environment variables
-API_KEY = os.getenv('API_KEY')
+APP_ID = os.getenv('APP_ID')
+APP_KEY = os.getenv('APP_KEY')
 
 
 # URL routing for the main landing page
@@ -38,7 +40,7 @@ app.add_url_rule('/',
 
 # URL routing for the search functionality 
 app.add_url_rule('/search',
-                 view_func=Search.as_view('search', api_key=API_KEY),
+                 view_func=Search.as_view('search', app_id=APP_ID, app_key=APP_KEY),
                  methods=['GET', 'POST'])
 
 
