@@ -1,152 +1,130 @@
 :root {   
-    font-size: 18px;
+  font-size: 18px;
+  --beet: #D45945;
+  --beet-text: #FBF6F4;
 }
 
 body {
-    margin: 0px;
-    color: #211C1B;
-    background-color: #F7E5E3;
+  margin: 0px;
+  color: #211C1B;
+  background-color: #FFFFFF;
 }
 
 .section {
-    margin: 0 120px 0 120px;
+  margin: 0 120px 0 120px;
 }
 
 /* ****************** Headings ****************** */
 h1 {
-  font-size: 56px;
-  line-height: 64px;
+  font-size: 48px;
+  line-height: 24px;
 }
 
 /* ****************** Font Classes ****************** */
-.playfair-display-regular {
-  font-family: "Playfair Display", serif;
+.nunito-sans-thin {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+.nunito-sans-light {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+
+.nunito-sans-regular {
+  font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
 
-.playfair-display-bold {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .playfair-display--black {
-    font-family: "Playfair Display", serif;
-    font-weight: 900;
-    font-style: normal;
-  }
+.nunito-sans-semibold {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
 
-.lato-thin {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .lato-light {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .lato-regular {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .lato-bold {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .lato-black {
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  .lato-thin-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .lato-light-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .lato-regular-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .lato-bold-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .lato-black-italic {
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  } 
+.nunito-sans-bold {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
 
 
 /* ****************** Navbar Styling ****************** */
 .navbar {
-    background-color: transparent;
-    padding: 40px 120px 40px 120px;
-    display: flex;
-    justify-content: space-between;
+  background-color: transparent;
+  padding: 40px 120px 40px 120px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo-link {
-    display: flex;
-    justify-content: flex-start;
+  display: inline-block; /* Ensures the link takes the size of the logo image */
 }
 
 .logo-img {
-    max-height: 56px;
-    width: auto;
+  display: block;
+  max-height: 56px;
+  width: auto;
 }
 
 .logo-img:hover {
-  filter: grayscale(20%);
-  opacity: 0.8;
+  opacity: 70%;
 }
 
 .navbar-nav {
-    display: flex;
-    justify-content: flex-end;
-    gap: 60px;
-    margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  margin: 10px;
 }
 
 .nav-link {
-    color: #211C1B;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    display: flex;
-    align-items: center;
+  color: #211C1B;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
 }
 
 .nav-link.active {
-  border-bottom: 1px solid #211C1B;;
-}
-
-.nav-link.active:hover {
-  border-bottom: 1px solid #AE9492;
+  background-color: var(--beet);
+  color: var(--beet-text);
+  padding: 14px 28px 14px 28px;
+  border-radius: 50px;
 }
 
 .nav-link:hover {
-  color: #AE9492;
+  color: var(--beet);
 }
+
+.nav-link.active:hover {
+  color: var(--beet-text);
+  opacity: 70%;
+}
+
+
 
 /* ****************** Home Styling ****************** */
