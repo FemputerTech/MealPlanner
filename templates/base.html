@@ -15,13 +15,14 @@
       <a class="logo-link" id="home" href="/">
         <img class="logo-img" src="./static/logo_2.png" alt="beet branding logo">
       </a>
-      <div class="searchbar">
-        <img class="search-img" src="./static/search.png" alt="magnifying glass icon">
-        <input class="searchbar-input nunito-sans-regular" type="text" placeholder="Search..." onfocus="activateSearchbar()" onblur="deactivateSearchbar()">
-        <button class="input-clear" onclick="clearInput()">
-          <img class="clear-img" src="./static/clear.png" alt="clear searchbar text">
-        </button>
-      </div>
+      <form class="searchbar" method="POST" action="/search">
+          <img class="search-img" src="./static/search.png" alt="magnifying glass icon">
+          <input class="searchbar-input nunito-sans-regular" type="text" name="query" placeholder="Search..." value="{{ query }}" onfocus="activateSearchbar()" onblur="deactivateSearchbar()">
+          <button type="submit" style="display: none;"></button>
+          <button class="input-clear" onclick="clearInput()">
+            <img class="clear-img" src="./static/clear.png" alt="clear searchbar text">
+          </button>
+      </form>
       <div class="navbar-nav">
         <a class="nav-link" id="home" href="/">Home</a> 
       </div>
