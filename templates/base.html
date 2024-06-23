@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Home{% endblock%}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <link rel=stylesheet type=text/css href="{{ url_for('static',
     filename='styles.css') }}">
   </head>
   <body>
-    <nav class="navbar lato-light">
+    <nav class="navbar nunito-sans-semibold">
+      <a class="logo-link" id="home" href="/">
+        <img class="logo-img" src="./static/logo_2.png" alt="beet branding logo">
+      </a>
       <div class="navbar-nav">
-        <a class="nav-link" id="home" href="/">Home</a>
+          <a class="nav-link" id="home" href="/">Home</a>
+          <a class="nav-link" id="search" href="/search">Search</a>
       </div>
     </nav>
-    <br />
     <div class="section">{% block content %}{% endblock %}</div>
   </body>
   <script
