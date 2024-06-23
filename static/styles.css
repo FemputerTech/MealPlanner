@@ -82,6 +82,7 @@ h1 {
   gap: 40px;
 }
 
+/* LOGO link */
 .logo-link {
   display: inline-block; /* Ensures the link takes the size of the logo image */
   margin: 10px;
@@ -97,18 +98,30 @@ h1 {
   opacity: 70%;
 }
 
+/* Search Bar */
 .searchbar {
   display: flex;
   align-items: center;
+  background-color: #F1F1F1;
+  border-radius: 50px;
+  border: none;
   width: 100%;
+}
+
+.searchbar.active {
+  outline: 2px solid #92C1FF;
+  background-color: #E1E1E1;
+}
+
+.searchbar:hover {
+  background-color: #E1E1E1;
 }
 
 .searchbar-input {
   font-size: 18px;
-  background-color: #F1F1F1;
-  border-radius: 50px;
+  background-color: transparent;
+  padding: 14px 28px 14px 4px;
   border: none;
-  padding: 14px 28px;
   width: 100%;
 }
 
@@ -123,13 +136,25 @@ h1 {
 }
 
 .searchbar-input:focus {
-  outline: 2px solid #92C1FF;
+  outline: none;
 }
 
-.searchbar-input:hover {
-  background-color: #E1E1E1;
+.search-img {
+  padding: 14px 0 14px 22px;
 }
 
+.input-clear {
+  border: none;
+  border-radius: 50px;
+  background-color: transparent;
+  padding: 14px 18px;
+}
+
+.input-clear:hover {
+  background-color: #D4D4D4;
+}
+
+/* Other Navbar Links */
 .navbar-nav {
   display: flex;
   justify-content: flex-end;
