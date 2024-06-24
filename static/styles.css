@@ -276,3 +276,82 @@ p {
 .card-item:hover .card-save {
   display: block;
 }
+
+/* ****************** Meal Plan Form Styling ****************** */
+.meal-planner-form-section {
+  display: flex;
+  background-color: #f8f8f8;
+  border-radius: 50px;
+}
+
+.form-recipe-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 0;
+  background-color: var(--beet);
+  border-radius: 50px 0 0 50px;
+}
+
+.recipe-image {
+  border-radius: 50px;
+}
+
+.recipe-title {
+  margin: 10px 0;
+  color: var(--beet-text);
+}
+
+.form-section {
+  padding: 50px;
+  width: 100%;
+}
+
+.form-intro {
+  margin-bottom: 40px;
+}
+
+.form-title {
+  margin: 10px 0;
+}
+
+.form-select {
+  display: flex;
+  font-size: 18px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  border: none;
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.form-check-content {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.form-check-input {
+  /* Hide the default browser styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  margin: 0 10px;
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+  background-color: #e1e1e1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-check-input:checked {
+  background-color: var(--beet);
+}
