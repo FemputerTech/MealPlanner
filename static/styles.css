@@ -158,17 +158,17 @@ h1 {
 
 .nav-link {
   color: #211c1b;
+  background-color: transparent;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
   display: flex;
   align-items: center;
+  padding: 14px 28px;
+  border-radius: 50px;
 }
 
 .nav-link.active {
   background-color: var(--beet);
   color: var(--beet-text);
-  padding: 14px 28px;
-  border-radius: 50px;
 }
 
 .nav-link:hover {
