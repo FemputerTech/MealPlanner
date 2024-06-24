@@ -4,24 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Home{% endblock%}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <link rel=stylesheet type=text/css href="{{ url_for('static',
     filename='styles.css') }}">
   </head>
   <body>
     <nav class="navbar nunito-sans-semibold">
       <a class="logo-link" id="home" href="/">
-        <img class="logo-img" src="./static/logo_2.png" alt="beet branding logo">
+        <img
+          class="logo-img"
+          src="./static/logo_2.png"
+          alt="beet branding logo"
+        />
       </a>
       <form class="searchbar" method="POST" action="/search">
-          <img class="search-img" src="./static/search.png" alt="magnifying glass icon">
-          <input class="searchbar-input nunito-sans-regular" type="text" name="query" placeholder="Search..." value="{{ query }}" onfocus="activateSearchbar()" onblur="deactivateSearchbar()">
-          <button type="submit" style="display: none;"></button>
-          <button class="input-clear" onclick="clearInput()">
-            <img class="clear-img" src="./static/clear.png" alt="clear searchbar text">
-          </button>
+        <img
+          class="search-img"
+          src="./static/search.png"
+          alt="magnifying glass icon"
+        />
+        <input
+          class="searchbar-input nunito-sans-regular"
+          type="text"
+          name="query"
+          placeholder="Search..."
+          value="{{ query }}"
+          onfocus="activateSearchbar()"
+          onblur="deactivateSearchbar()"
+        />
+        <button type="submit" style="display: none"></button>
+        <button class="input-clear" onclick="clearInput()">
+          <img
+            class="clear-img"
+            src="./static/clear.png"
+            alt="clear searchbar text"
+          />
+        </button>
       </form>
       <div class="navbar-nav">
         <a class="nav-link" id="home" href="/">Home</a>

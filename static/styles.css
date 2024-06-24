@@ -1,20 +1,20 @@
-:root {   
+:root {
   font-size: 18px;
-  --beet: #D45945;
-  --beet-text: #FBF6F4;
-  
+  --beet: #d45945;
+  --beet-text: #fbf6f4;
+
   --card-width: 250px;
   --card-border-radius: 20px;
   --row-increment: 10px;
-  --card-small: 26;
-  --card-regular: 33;
-  --card-large: 45;
+  --card-small: 32;
+  --card-regular: 38;
+  --card-large: 44;
 }
 
 body {
   margin: 0;
-  color: #211C1B;
-  background-color: #FFFFFF;
+  color: #211c1b;
+  background-color: #ffffff;
 }
 
 .section {
@@ -33,9 +33,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 .nunito-sans-light {
@@ -43,9 +41,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 .nunito-sans-regular {
@@ -53,9 +49,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 .nunito-sans-semibold {
@@ -63,9 +57,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 .nunito-sans-bold {
@@ -73,11 +65,8 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
-
 
 /* ****************** Navbar Styling ****************** */
 .navbar {
@@ -109,19 +98,19 @@ h1 {
 .searchbar {
   display: flex;
   align-items: center;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   border-radius: 50px;
   border: none;
   width: 100%;
 }
 
 .searchbar.active {
-  outline: 2px solid #92C1FF;
-  background-color: #E1E1E1;
+  outline: 2px solid #92c1ff;
+  background-color: #e1e1e1;
 }
 
 .searchbar:hover {
-  background-color: #E1E1E1;
+  background-color: #e1e1e1;
 }
 
 .searchbar-input {
@@ -137,9 +126,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
 .searchbar-input:focus {
@@ -158,7 +145,7 @@ h1 {
 }
 
 .input-clear:hover {
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
 }
 
 /* Other Navbar Links */
@@ -170,7 +157,7 @@ h1 {
 }
 
 .nav-link {
-  color: #211C1B;
+  color: #211c1b;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   display: flex;
@@ -193,10 +180,7 @@ h1 {
   opacity: 70%;
 }
 
-
-
 /* ****************** Home Styling ****************** */
-
 
 /* ****************** Search Styling ****************** */
 .card-container {
@@ -213,10 +197,11 @@ h1 {
 }
 
 .card-item {
+  display: flex; /* added this */
+  flex-direction: column; /* added this */
   border-radius: var(--card-border-radius);
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   transition: transform 0.2s;
-  overflow: hidden;
   margin: 15px 10px;
   padding: 0;
 }
@@ -234,8 +219,9 @@ h1 {
 }
 
 .card-img {
-  width: 100%;
-  height: 80%;
+  /* width: 100%; */
+  /* height: 90%; */
+  flex: 1 1 auto; /* added this */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   border-radius: var(--card-border-radius);
@@ -243,6 +229,9 @@ h1 {
 
 .card-title {
   padding: 10px;
+  text-overflow: ellipsis; /* added this */
+  white-space: nowrap; /* added this */
+  overflow: hidden; /* added this */
 }
 
 .card-item:hover {
