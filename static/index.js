@@ -22,7 +22,7 @@ function clearInput() {
   input.focus(); // Keep focus on the input after clearing
 }
 
-/* Cards */
+/******* Cards *******/
 const cards = document.querySelectorAll(".card-item");
 const cardClasses = ["card-small", "card-regular", "card-large"];
 
