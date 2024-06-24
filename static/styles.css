@@ -2,10 +2,17 @@
   font-size: 18px;
   --beet: #D45945;
   --beet-text: #FBF6F4;
+  
+  --card-width: 250px;
+  --card-border-radius: 20px;
+  --row-increment: 10px;
+  --card-small: 26;
+  --card-regular: 33;
+  --card-large: 45;
 }
 
 body {
-  margin: 0px;
+  margin: 0;
   color: #211C1B;
   background-color: #FFFFFF;
 }
@@ -193,33 +200,51 @@ h1 {
 
 /* ****************** Search Styling ****************** */
 .card-container {
+  position: absolute;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, var(--card-width));
+  grid-auto-rows: var(--row-increment);
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%);
+  margin: 0;
+  padding: 0;
+  width: 80vw;
 }
 
 .card-item {
-  position: relative;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: var(--card-border-radius);
+  background-color: #f8f8f8;
+  transition: transform 0.2s;
   overflow: hidden;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.card-small {
+  grid-row-end: span var(--card-small);
+}
+
+.card-regular {
+  grid-row-end: span var(--card-regular);
+}
+
+.card-large {
+  grid-row-end: span var(--card-large);
 }
 
 .card-img {
   width: 100%;
-  display: block;
-  border-radius: 20px;
+  height: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border-radius: var(--card-border-radius);
 }
 
-.card-banner {
-  box-sizing: border-box;
+.card-title {
   padding: 10px;
-  /* position: absolute;
-  background: black;
-  color: white;
-  text-align: center;
-  box-sizing: border-box;
-  width: 100%; */
+}
+
+.card-item:hover {
+  transform: scale(1.05);
 }

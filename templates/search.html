@@ -3,9 +3,9 @@
 <div class="search-section">
     <div class="card-container">
         {% for recipe in recipes %}
-            <div class="card-item nunito-sans-semibold">
+            <div class="card-item card-small nunito-sans-semibold">
                 <img class="card-img" src="{{ recipe['recipe']['image'] }}">
-                <div class="card-banner">{{ recipe['recipe']['label'] }}</div>
+                <div class="card-title">{{ recipe['recipe']['label'] }}</div>
             </div>
         {% endfor %}
     </div>
