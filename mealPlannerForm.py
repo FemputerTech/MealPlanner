@@ -7,29 +7,29 @@ from flask.views import MethodView
 from datetime import datetime, timedelta
 
 
-class MealPlanner(MethodView):
+class MealPlannerForm(MethodView):
     """
-    Handles the meal planner page.
+    Handles the meal planner form page.
 
     Methods:
     -------
-    get(): Handles GET requests to the meal planner page.
-    post(): Handles POST requests to the meal planner page.
+    get(): Handles GET requests to the meal planner form page.
+    post(): Handles POST requests to the meal planner form page.
     """
 
 
     def get(self):
         """
-        Renders the meal planner page.
+        Renders the meal planner form page.
 
         Returns:
         -------
         response : str
-            The rendered HTML template for the meal planner page.
+            The rendered HTML template for the meal planner form page.
         """
         title = request.args.get('title')  # Get title from query string
         image = request.args.get('image')  # Get image from query string
-        return render_template("mealPlanner.html", recipe_title=title, recipe_image=image)
+        return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image)
     
     def post(self):
         return redirect(url_for('search'))
