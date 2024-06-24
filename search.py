@@ -41,16 +41,19 @@ class Search(MethodView):
         response : str
             The rendered HTML template for the search page.
         """
-        return render_template('search.html')
+        search_results = self.search_recipes("recipes")
+        if search_results:
+            recipes = search_results.get('hits', [])
+            return render_template('search.html', recipes=recipes)
+        else:
+            return 'Failed to fetch search results', 500
 
 
     def post(self):
         query = request.form.get('query')
-        
-        if query:
-            search_results = self.search_recipes(query)
-        else:
-            search_results = self.search_recipes("recipes")
+
+        search_results = self.search_recipes(query or "recipes")
+
         if search_results:
             recipes = search_results.get('hits', [])
             return render_template('search.html', recipes=recipes, query=query)
