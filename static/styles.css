@@ -24,7 +24,13 @@ body {
 /* ****************** Headings ****************** */
 h1 {
   font-size: 48px;
-  line-height: 24px;
+  line-height: 76px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 14px;
 }
 
 /* ****************** Font Classes ****************** */
@@ -181,6 +187,15 @@ h1 {
 }
 
 /* ****************** Home Styling ****************** */
+.search-button {
+  background-color: var(--beet);
+  color: var(--beet-text);
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
 
 /* ****************** Search Styling ****************** */
 .card-container {

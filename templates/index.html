@@ -6,5 +6,11 @@
     <span style="color: var(--beet); font-size: 76px">beet.</span>
   </h1>
   <p class="nunito-sans-regular">A recipe finder and meal planner.</p>
+  <form method="POST" action="/search">
+    <input type="hidden" name="query" />
+    <button class="search-button nunito-sans-semibold" type="submit">
+      Search for recipes
+    </button>
+  </form>
 </div>
 {% endblock %}
