@@ -46,15 +46,21 @@ class Search(MethodView):
 
     def post(self):
         query = request.form.get('query')
-        if query:
-            search_results = self.search_recipes(query)
+        action = request.form.get('action')
+         # check if the request is to add a recipe to the meal planner
+        if action == 'add':
+            return render_template('mealPlanner.html')
+        # otherwise do a search request
         else:
-            search_results = self.search_recipes("recipes")
-        if search_results:
-            recipes = search_results.get('hits', [])
-            return render_template('search.html', recipes=recipes, query=query)
-        else:
-            return 'Failed to fetch search results', 500
+            if query:
+                search_results = self.search_recipes(query)
+            else:
+                search_results = self.search_recipes("recipes")
+            if search_results:
+                recipes = search_results.get('hits', [])
+                return render_template('search.html', recipes=recipes, query=query)
+            else:
+                return 'Failed to fetch search results', 500
         
 
     def search_recipes(self, query):

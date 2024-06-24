@@ -3,12 +3,28 @@
 <div class="search-section">
   <div class="card-container">
     {% for recipe in recipes %}
-    <div
-      class="card-item card-small nunito-sans-semibold"
-      onclick="window.open('{{ recipe.recipe.url }}', '_blank')"
-    >
-      <img class="card-img" src="{{ recipe.recipe.image }}" />
-      <div class="card-title">{{ recipe.recipe.label }}</div>
+    <div class="card-item card-small nunito-sans-semibold">
+      <img
+        class="card-img"
+        src="{{ recipe.recipe.image }}"
+        onclick="window.open('{{ recipe.recipe.url }}', '_blank')"
+      />
+      <div
+        class="card-title"
+        onclick="window.open('{{ recipe.recipe.url }}', '_blank')"
+      >
+        {{ recipe.recipe.label }}
+      </div>
+      <form class="card-save" method="POST">
+        <button
+          class="card-save-button nunito-sans-semibold"
+          name="action"
+          type="submit"
+          value="add"
+        >
+          Save
+        </button>
+      </form>
     </div>
     {% endfor %}
   </div>
