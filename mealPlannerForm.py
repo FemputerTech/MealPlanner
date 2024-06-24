@@ -31,5 +31,6 @@ class MealPlannerForm(MethodView):
         image = request.args.get('image')  # Get image from query string
         return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image)
     
+    
     def post(self):
         return redirect(url_for('search'))

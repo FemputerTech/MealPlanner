@@ -52,7 +52,7 @@ class Search(MethodView):
     def post(self):
         query = request.form.get('query')
 
-        search_results = self.search_recipes(query or "recipes")
+        search_results = self.search_recipes(query)
 
         if search_results:
             recipes = search_results.get('hits', [])
