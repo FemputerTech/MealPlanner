@@ -46,7 +46,10 @@ class Search(MethodView):
 
     def post(self):
         query = request.form.get('query')
-        search_results = self.search_recipes(query)
+        if query:
+            search_results = self.search_recipes(query)
+        else:
+            search_results = self.search_recipes("recipes")
         if search_results:
             recipes = search_results.get('hits', [])
             return render_template('search.html', recipes=recipes, query=query)
@@ -62,7 +65,7 @@ class Search(MethodView):
             'app_id': self.app_id,
             'app_key': self.app_key,
             'random': True,
-        }
+        } 
         url = url + '?' + '&'.join([f"{k}={v}" for k, v in params.items() if v is not None])
         print("Full URL:", url)
         response = requests.get(url, params=params)
