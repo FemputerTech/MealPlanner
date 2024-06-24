@@ -27,7 +27,9 @@ class MealPlanner(MethodView):
         response : str
             The rendered HTML template for the meal planner page.
         """
-        return render_template("mealPlanner.html")
+        title = request.args.get('title')  # Get title from query string
+        image = request.args.get('image')  # Get image from query string
+        return render_template("mealPlanner.html", recipe_title=title, recipe_image=image)
     
     def post(self):
-        pass
+        return redirect(url_for('search'))

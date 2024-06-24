@@ -15,13 +15,14 @@
       >
         {{ recipe.recipe.label }}
       </div>
-      <form class="card-save" method="POST">
-        <button
-          class="card-save-button nunito-sans-semibold"
-          name="action"
-          type="submit"
-          value="add"
-        >
+      <form
+        class="card-save"
+        method="GET"
+        action="{{ url_for('meal-planner') }}"
+      >
+        <input type="hidden" name="title" value="{{ recipe.recipe.label }}" />
+        <input type="hidden" name="image" value="{{ recipe.recipe.image }}" />
+        <button class="card-save-button nunito-sans-semibold" type="submit">
           Save
         </button>
       </form>
