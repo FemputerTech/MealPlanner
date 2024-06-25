@@ -15,6 +15,7 @@ body {
   margin: 0;
   color: #211c1b;
   background-color: #ffffff;
+  margin-bottom: 50px;
 }
 
 .section {
@@ -235,7 +236,7 @@ p {
 }
 
 .card-img {
-  flex: 1 1 auto; /* added this */
+  flex: 1 1 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   border-radius: var(--card-border-radius);
@@ -243,9 +244,9 @@ p {
 
 .card-title {
   padding: 10px;
-  text-overflow: ellipsis; /* added this */
-  white-space: nowrap; /* added this */
-  overflow: hidden; /* added this */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-item:hover {
@@ -287,24 +288,27 @@ p {
 .form-recipe-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 50px;
-  margin: 0;
   background-color: var(--beet);
   border-radius: 50px 0 0 50px;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 0;
 }
 
 .recipe-image {
-  border-radius: 50px;
+  border-radius: 50px 0 0 0;
+  width: 100%;
+  height: 60%;
 }
 
 .recipe-title {
-  margin: 10px 0;
+  margin: 20px;
   color: var(--beet-text);
 }
 
 .form-section {
+  display: flex;
   padding: 50px;
   width: 100%;
 }
