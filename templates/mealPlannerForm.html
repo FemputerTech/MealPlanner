@@ -1,6 +1,6 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
-<div class="meal-planner-form-section">
+<div class="meal-planner-form-section" onclick="window.open('{{ recipe_url }}', '_blank')">
   <div class="form-recipe-section">
     <img class="recipe-image"
       src="{{ recipe_image }}"

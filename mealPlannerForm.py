@@ -29,7 +29,8 @@ class MealPlannerForm(MethodView):
         """
         title = request.args.get('title')  # Get title from query string
         image = request.args.get('image')  # Get image from query string
-        return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image)
+        url = request.args.get('url')  # Get url from query string
+        return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image, recipe_url=url)
     
     
     def post(self):

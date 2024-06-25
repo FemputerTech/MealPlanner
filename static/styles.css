@@ -296,6 +296,12 @@ p {
   margin: 0;
 }
 
+.form-recipe-section:hover {
+  cursor: zoom-in;
+  filter: grayscale(10%) brightness(70%);
+  opacity: 90%;
+}
+
 .recipe-image {
   border-radius: 50px 0 0 0;
   width: 100%;
@@ -303,8 +309,12 @@ p {
 }
 
 .recipe-title {
-  margin: 20px;
+  margin: 32px;
   color: var(--beet-text);
+}
+
+.recipe-title:hover {
+  transform: scale(1.05);
 }
 
 .form-section {
