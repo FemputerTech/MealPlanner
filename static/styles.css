@@ -318,7 +318,6 @@ p {
 }
 
 .form-section {
-  display: flex;
   padding: 50px;
   width: 100%;
 }

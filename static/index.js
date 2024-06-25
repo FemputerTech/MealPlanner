@@ -63,6 +63,16 @@ function populateSundaysDropdown(weekStart) {
   const sundays = getSundays();
   const sundaysDropdown = document.getElementById("week_start");
 
+  // Create a new <option> element that is a placeholder
+  const disabledOption = document.createElement("option");
+  disabledOption.value = "";
+  disabledOption.textContent =
+    "Select a starting day for your weekly meal planner";
+  disabledOption.disabled = true;
+  disabledOption.selected = true;
+  sundaysDropdown.append(disabledOption);
+
+  // Populate dropdown with Sundays
   sundays.forEach((sunday) => {
     const option = document.createElement("option");
     option.value = sunday.toDateString();
