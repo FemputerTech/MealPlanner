@@ -1,7 +1,7 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
-<div class="meal-planner-form-section" onclick="window.open('{{ recipe_url }}', '_blank')">
-  <div class="form-recipe-section">
+<div class="meal-planner-form-section">
+  <div class="form-recipe-section" onclick="window.open('{{ recipe_url }}', '_blank')">
     <img class="recipe-image"
       src="{{ recipe_image }}"
       alt="{{ recipe_title }}"
@@ -22,15 +22,15 @@
           class="form-select nunito-sans-regular"
           id="week_start"
           name="week_start"
-          option="required"
-          aria-label="select the starting day of week you want to start the meal plan"
+          aria-label="Select the starting day of week you want to start the meal plan"
+          required
         ></select>
         <select
           class="form-select nunito-sans-regular"
           id="day"
           name="day"
-          placeholder="day of the week"
-          aria-label="select a day of the week"
+          aria-label="Select a day of the week"
+          required
         >
           <option value="" selected></option>
           <option value="sunday">Sunday</option>
