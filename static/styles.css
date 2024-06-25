@@ -334,7 +334,7 @@ p {
   margin: 10px 0;
 }
 
-.add-button-container {
+.button-container {
   display: flex;
   justify-content: flex-end;
 }
@@ -346,11 +346,22 @@ p {
   border-radius: 50px;
   border: none;
   cursor: pointer;
+  margin: 5px;
 }
 
 #submitButton:disabled {
   background-color: lightgray; /* Light gray when disabled */
   cursor: not-allowed;
+}
+
+.close-button {
+  background-color: black;
+  color: #e1e1e1;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
 }
 
 .form-select {

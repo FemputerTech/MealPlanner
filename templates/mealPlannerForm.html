@@ -20,7 +20,7 @@
           <h2 class="form-title nunito-sans-semibold">
             Add this recipe to your meal planner
           </h2>
-          <div class="add-button-container">
+          <div class="button-container">
             <button
               class="add-button nunito-sans-semibold"
               type="submit"
@@ -28,6 +28,13 @@
               disabled
             >
               Add
+            </button>
+            <button
+              class="close-button nunito-sans-semibold"
+              type="button"
+              onclick="window.location.href='/search'"
+            >
+              Close
             </button>
           </div>
         </div>
@@ -41,14 +48,12 @@
           id="week_start"
           name="week_start"
           aria-label="Select the starting day of week you want to start the meal plan"
-          required
         ></select>
         <select
           class="form-select nunito-sans-regular"
           id="day"
           name="day"
           aria-label="Select a day of the week"
-          required
         >
           <option value="" disabled selected>Select a day of the week</option>
           <option value="sunday">Sunday</option>
