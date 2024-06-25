@@ -326,8 +326,31 @@ p {
   margin-bottom: 40px;
 }
 
+.form-title-container {
+  display: flex;
+  justify-content: space-between;
+}
 .form-title {
   margin: 10px 0;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-button {
+  background-color: var(--beet);
+  color: var(--beet-text);
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+#submitButton:disabled {
+  background-color: lightgray; /* Light gray when disabled */
+  cursor: not-allowed;
 }
 
 .form-select {

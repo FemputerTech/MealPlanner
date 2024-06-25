@@ -87,10 +87,38 @@ function populateSundaysDropdown(weekStart) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   // Get the selected week_start value from the URL
   const urlParams = new URLSearchParams(window.location.search);
   const weekStart = urlParams.get("week_start");
 
   populateSundaysDropdown(weekStart);
+
+  // Function to check if all required inputs are filled
+  function validateForm() {
+    var weekStart = document.getElementById("week_start").value;
+    var day = document.getElementById("day").value;
+    var meal = document.querySelector('input[name="meal"]:checked');
+
+    // Check if both inputs have values
+    if (weekStart && day && meal) {
+      document.getElementById("submitButton").disabled = false; // Enable submit button
+    } else {
+      document.getElementById("submitButton").disabled = true; // Disable submit button
+    }
+  }
+
+  // Initially disable the submit button
+  document.getElementById("submitButton").disabled = true;
+
+  // Trigger validation on change of inputs
+  document
+    .getElementById("week_start")
+    .addEventListener("change", validateForm);
+  document.getElementById("day").addEventListener("change", validateForm);
+
+  var mealRadios = document.querySelectorAll('input[name="meal"]');
+  mealRadios.forEach(function (radio) {
+    radio.addEventListener("change", validateForm);
+  });
 });

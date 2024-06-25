@@ -1,8 +1,12 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <div class="meal-planner-form-section">
-  <div class="form-recipe-section" onclick="window.open('{{ recipe_url }}', '_blank')">
-    <img class="recipe-image"
+  <div
+    class="form-recipe-section"
+    onclick="window.open('{{ recipe_url }}', '_blank')"
+  >
+    <img
+      class="recipe-image"
       src="{{ recipe_image }}"
       alt="{{ recipe_title }}"
       style="padding-bottom: 10px"
@@ -12,7 +16,21 @@
   <div class="form-section">
     <form method="POST" action="/meal-planner">
       <div class="form-intro">
-        <h2 class="form-title nunito-sans-semibold">Add this recipe to your meal planner</h2>
+        <div class="form-title-container">
+          <h2 class="form-title nunito-sans-semibold">
+            Add this recipe to your meal planner
+          </h2>
+          <div class="add-button-container">
+            <button
+              class="add-button nunito-sans-semibold"
+              type="submit"
+              id="submitButton"
+              disabled
+            >
+              Add
+            </button>
+          </div>
+        </div>
         <p class="nunito-sans-light">Read and fill in the inputs</p>
       </div>
       <input type="hidden" name="recipe_title" value="{{ recipe_title }}" />
@@ -46,7 +64,7 @@
         >
         {% for meal in ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'] %}
         <div class="form-check nunito-sans-semibold">
-          <fieldset class="form-check-content">
+          <div class="form-check-content">
             <input
               class="form-check-input"
               type="radio"
@@ -58,10 +76,9 @@
               >{{ meal|capitalize }}</label
             >
           </div>
-          {% endfor %}
         </div>
+        {% endfor %}
       </div>
-      <!-- <button class="btn btn-primary" type="submit">Add</button> -->
     </form>
   </div>
 </div>
