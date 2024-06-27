@@ -76,5 +76,5 @@ gcloud run deploy mealplanner \
    `export APP_ID=<the app id>`
    `export APP_KEY=<the api key>`
 2. create a local environment variable for GOOGLE_APPLICATION_CREDENTIALS
-   `export GOOGLE_APPLICATION_CREDENTIALS="cloud-leicht-mleicht-key.json"`
+   `export GOOGLE_APPLICATION_CREDENTIALS="cloud-mealplanner-leicht-key.json"`
 3. run the with python `python3 app.py`
