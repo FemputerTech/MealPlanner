@@ -42,7 +42,7 @@ You can search by food, cuisine, diet, intolerances, and type.
 2. Run the command in Cloud Shell in the same directory as the Dockerfile to build the container
    `gcloud builds submit --tag gcr.io/cloud-mealplanner-leicht/mealplanner-image`
 3. Check that the image was created in Artifact Registry
-4. to rebuild the image, just run the same function
+4. to rebuild the image, just pull the latest repo and run the same function
 
 ### Set up the secret API KEY
 
