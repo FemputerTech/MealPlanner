@@ -50,7 +50,7 @@ class model(Model):
         """
         Initialize the model with a GCP Datastore client.
         """
-        self.client = datastore.Client('cloud-leicht-mleicht')
+        self.client = datastore.Client('cloud-mealplanner-leicht')
 
 
     def select_recipe(self, selected_week):
