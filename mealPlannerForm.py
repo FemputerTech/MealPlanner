@@ -5,6 +5,7 @@ meal planner feature of the Recipe and Meal Planner application.
 from flask import request, render_template, redirect, url_for
 from flask.views import MethodView
 from datetime import datetime, timedelta
+import model
 
 
 class MealPlannerForm(MethodView):
@@ -34,4 +35,30 @@ class MealPlannerForm(MethodView):
     
     
     def post(self):
+        """
+        Handles form submissions to add a recipe to the meal planner.
+        
+        Retrieves the recipe details and meal plan information from the form,
+        then inserts the data into the model and redirects to the search page.
+
+        Returns:
+        -------
+        A redirect response to the search page.
+        """
+        recipe_title = request.form.get('recipe_title')
+        recipe_image = request.form.get('recipe_image')
+        recipe_url = request.form.get('recipe_url')
+        recipe_week_start = request.form.get('week_start')
+        recipe_day = request.form.get('day')
+        recipe_meal = request.form.get('meal')
+
+        recipe_week_start = datetime.strptime(recipe_week_start, '%a %b %d %Y')
+        recipe_week_end = recipe_week_start + timedelta(days=6)
+
+        # formmatting to strings
+        recipe_week_start = recipe_week_start.strftime('%a %b %d %Y')
+        recipe_week_end = recipe_week_end.strftime('%a %b %d %Y')
+
+        model = model.get_model()
+        model.insert_recipe(recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal)
         return redirect(url_for('search'))
