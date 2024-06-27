@@ -2,5 +2,47 @@
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <div class="meal-planner-section">
   <h1>Meal Planner</h1>
+  <form method="GET" action="{{ url_for('meal-planner') }}">
+    <div>
+      <label for="week_start">Week of:</label>
+      <select
+        id="week_start"
+        name="week_start"
+        aria-label="select the starting day of week you want to start the meal plan"
+      ></select>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          {% for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+          "Friday", "Saturday"] %}
+        </th>
+
+        <th class="rotate">
+          <div><span>{{ day }}</span></div>
+        </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for meal in ["breakfast", "lunch", "dinner", "dessert", "snack"] %}
+      <tr>
+        <th>{{ meal|capitalize }}</th>
+        {% for day in ["sunday", "monday", "tuesday", "wednesday", "thursday",
+        "friday", "saturday"] %}
+        <td>
+          {% for recipe in recipes %} {% if recipe.recipe_meal == meal and
+          recipe.recipe_day == day %}
+          <div>{{ recipe.recipe_title }}</div>
+          {% endif %} {% endfor %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}
