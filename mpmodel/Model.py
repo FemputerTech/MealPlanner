@@ -12,7 +12,7 @@ class Model():
     select_recipe(selected_week):
         Retrieves all recipes from the database for a selected week.
     
-    insert_recipe(recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    insert_recipe(recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
         Inserts a recipe into the database.
 
     delete(id):
@@ -37,16 +37,16 @@ class Model():
         pass
 
 
-    def insert_recipe(self, recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    def insert_recipe(self, recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
         """
         Inserts recipes into database.
 
         Parameters:
-        ---------- 
+        ----------
+        recipe_id : string
+            the id of the recipe.
         recipe_title : str
             The title of the recipe.
-        recipe_image: str
-            The URL of the recipe image.
         recipe_url: str
             The URL of the recipe.
         recipe_week_start: str

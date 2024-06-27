@@ -23,7 +23,7 @@ def from_datastore(entity):
         return None
     if isinstance(entity, list):
         entity = entity.pop()
-    return [entity.key.id, entity['recipe_title'], entity['recipe_image'], entity['recipe_url'], entity['recipe_week_start'], entity['recipe_week_end'], entity['recipe_day'], entity['recipe_meal']]
+    return [entity.key.id, entity['recipe_id'], entity['recipe_title'], entity['recipe_url'], entity['recipe_week_start'], entity['recipe_week_end'], entity['recipe_day'], entity['recipe_meal']]
 
 
 class model(Model):
@@ -38,7 +38,7 @@ class model(Model):
     select_recipe(selected_week):
         Retrieves all recipes from the datastore for a selected week.
 
-    insert_recipe(recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    insert_recipe(recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
         Inserts a recipe into the datastore.
 
     delete(entity_key):
@@ -73,16 +73,16 @@ class model(Model):
         return [from_datastore(entity) for entity in entities]
 
 
-    def insert_recipe(self, recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    def insert_recipe(self, recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
         """
         Insert a recipe into datastore.
 
         Parameters:
         ----------
+        recipe_id : string
+            the id of the recipe.
         recipe_title : str
             The title of the recipe.
-        recipe_image: str
-            The URL of the recipe image.
         recipe_url: str
             The URL of the recipe.
         recipe_week_start: str
@@ -104,8 +104,8 @@ class model(Model):
         key = self.client.key('Recipes')
         rev = datastore.Entity(key)
         rev.update( {
+            'recipe_id': recipe_id,
             'recipe_title': recipe_title,
-            'recipe_image': recipe_image,
             'recipe_url': recipe_url,
             'recipe_week_start': recipe_week_start,
             'recipe_week_end': recipe_week_end,

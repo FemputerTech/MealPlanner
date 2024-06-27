@@ -5,6 +5,7 @@ meal planner feature of the Recipe and Meal Planner application.
 from flask import request, render_template, redirect, url_for
 from flask.views import MethodView
 from datetime import datetime, timedelta
+from urllib.parse import urlparse
 import mpmodel
 
 
@@ -31,7 +32,14 @@ class MealPlannerForm(MethodView):
         title = request.args.get('title')  # Get title from query string
         image = request.args.get('image')  # Get image from query string
         url = request.args.get('url')  # Get url from query string
-        return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image, recipe_url=url)
+        ref = request.args.get('ref')
+        
+        parsed_ref = urlparse(ref)
+        recipe_id = parsed_ref.path.split('/')[-1]
+
+        # print('recipe id:', recipe_id)
+
+        return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image, recipe_url=url, recipe_id = recipe_id)
     
     
     def post(self):
@@ -45,8 +53,8 @@ class MealPlannerForm(MethodView):
         -------
         A redirect response to the search page.
         """
+        recipe_id = request.form.get('recipe_id')
         recipe_title = request.form.get('recipe_title')
-        recipe_image = request.form.get('recipe_image')
         recipe_url = request.form.get('recipe_url')
         recipe_week_start = request.form.get('week_start')
         recipe_day = request.form.get('day')
@@ -60,5 +68,5 @@ class MealPlannerForm(MethodView):
         recipe_week_end = recipe_week_end.strftime('%a %b %d %Y')
 
         model = mpmodel.get_model()
-        model.insert_recipe(recipe_title, recipe_image, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal)
+        model.insert_recipe(recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal)
         return redirect(url_for('search'))
