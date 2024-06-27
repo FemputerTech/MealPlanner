@@ -21,6 +21,7 @@ import flask
 from index import Index
 from search import Search
 from mealPlannerForm import MealPlannerForm
+from mealPlanner import MealPlanner
 
 
 # Initializes the Flask application
@@ -48,6 +49,12 @@ app.add_url_rule('/search',
 # URL routing for the meal planner form
 app.add_url_rule('/meal-planner-form',
                  view_func=MealPlannerForm.as_view('meal-planner-form'),
+                 methods=['GET', 'POST'])
+
+
+# URL routing for the meal planner
+app.add_url_rule('/meal-planner',
+                 view_func=MealPlanner.as_view('meal-planner'),
                  methods=['GET', 'POST'])
 
 
