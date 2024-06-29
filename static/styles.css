@@ -18,20 +18,25 @@ body {
   margin-bottom: 50px;
 }
 
-.section {
-  margin: 0 120px 0 120px;
-}
-
 /* ****************** Headings ****************** */
 h1 {
-  font-size: 48px;
+  font-size: 60px;
   line-height: 76px;
   margin: 0;
+}
+
+h3 {
+  margin: 10px;
 }
 
 p {
   margin: 0;
   margin-bottom: 14px;
+}
+
+.section {
+  margin-left: 180px;
+  margin-right: 180px;
 }
 
 /* ****************** Font Classes ****************** */
@@ -188,6 +193,10 @@ p {
 }
 
 /* ****************** Home Styling ****************** */
+.home-section {
+  margin-top: 100px;
+}
+
 .search-button {
   background-color: var(--beet);
   color: var(--beet-text);
@@ -196,6 +205,7 @@ p {
   border-radius: 50px;
   border: none;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 /* ****************** Search Styling ****************** */
