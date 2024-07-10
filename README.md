@@ -1,12 +1,10 @@
-# Welcome to my Recipe and Meal Planner App!
-
-## About
+# Welcome to my Recipe and Meal Planner App
 
 API: [EDAMAM API](https://developer.edamam.com/edamam-docs-recipe-api)
 
 Description: Develop a recipe and meal planning application that helps users find recipes and plan meals.
 
-# Search for a recipe
+## Search for a recipe
 
 You can search by food, cuisine, diet, intolerances, and type.
 
@@ -14,7 +12,7 @@ You can search by food, cuisine, diet, intolerances, and type.
 
 ### Set up virtual environment
 
-1. Install the virtual environment `virtualenv -p python3 .env`
+1. Install the virtual environment `python3 -m venv .env`
 2. Activate the environment in your shell `source .env/bin/activate`
 3. Install dependencies `pip3 install -r requirements.txt`
 4. Select the python interpreter for the virtual environment
