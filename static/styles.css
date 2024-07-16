@@ -410,3 +410,43 @@ p {
 .form-check-input:checked {
   background-color: var(--beet);
 }
+
+/* ****************** Meal Planner Styling ****************** */
+.sunday-form {
+  /* display: flex;
+  align-items: center; */
+}
+
+.submit-button {
+  background-color: black;
+  color: #e1e1e1;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 80px;
+  height: 40px;
+}
+
+button:hover {
+  background-color: var(--beet);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ede1df;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f19686;
+}

@@ -1,19 +1,19 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <div class="meal-planner-section">
-  <h1>Meal Planner</h1>
-  <form method="GET" action="{{ url_for('meal-planner') }}">
+  <h1 class="nunito-sans-semibold">Meal Planner</h1>
+  <form class="sunday-form" method="GET" action="{{ url_for('meal-planner') }}">
     <div>
-      <label for="week_start">Week of:</label>
+      <label class="nunito-sans-regular" for="week_start">Week of:</label>
       <select
         id="week_start"
         name="week_start"
         aria-label="select the starting day of week you want to start the meal plan"
       ></select>
     </div>
-    <button type="submit">Submit</button>
+    <button class="submit-button" , type="submit">Submit</button>
   </form>
-  <table>
+  <table class="nunito-sans-regular">
     <thead>
       <tr>
         <th>
@@ -21,7 +21,7 @@
           "Friday", "Saturday"] %}
         </th>
 
-        <th class="rotate">
+        <th>
           <div><span>{{ day }}</span></div>
         </th>
         {% endfor %}
