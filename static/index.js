@@ -122,3 +122,16 @@ document.addEventListener("DOMContentLoaded", function () {
     radio.addEventListener("change", validateForm);
   });
 });
+
+// handling the click event to delete a recipe
+function deleteRecipe(id) {
+  let weekStart = document.getElementById("week_start").value.split(" ");
+  console.log("deleting:", id);
+  console.log("week:", weekStart);
+  fetch("/delete", {
+    method: "DELETE",
+    body: JSON.stringify({ id: id }),
+  }).then((_res) => {
+    window.location.href = `/meal-planner?week_start=${weekStart[0]}+${weekStart[1]}+${weekStart[2]}+${weekStart[3]}`;
+  });
+}

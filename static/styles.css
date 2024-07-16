@@ -430,7 +430,7 @@ p {
   height: 40px;
 }
 
-button:hover {
+.submit-button:hover {
   background-color: var(--beet);
 }
 

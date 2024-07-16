@@ -22,6 +22,7 @@ from index import Index
 from search import Search
 from mealPlannerForm import MealPlannerForm
 from mealPlanner import MealPlanner
+from delete import Delete
 
 
 # Initializes the Flask application
@@ -56,6 +57,12 @@ app.add_url_rule('/meal-planner-form',
 app.add_url_rule('/meal-planner',
                  view_func=MealPlanner.as_view('meal-planner'),
                  methods=['GET', 'POST'])
+
+
+# URL routing for deleting recipes from weekly meals
+app.add_url_rule('/delete',
+                 view_func=Delete.as_view('delete'),
+                 methods=['DELETE'])
 
 
 # Run the application

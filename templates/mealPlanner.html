@@ -44,6 +44,13 @@
             >
               {{ recipe.recipe_title }}
             </p>
+            <button
+              type="button"
+              class="close"
+              onClick="deleteRecipe('{{ recipe.id }}')"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
 
           {% endif %} {% endfor %}
