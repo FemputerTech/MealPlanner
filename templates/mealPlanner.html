@@ -36,7 +36,16 @@
         <td>
           {% for recipe in recipes %} {% if recipe.recipe_meal == meal and
           recipe.recipe_day == day %}
-          <div>{{ recipe.recipe_title }}</div>
+          <div>
+            <p
+              class="meal-title"
+              onclick="window.open('{{ recipe.recipe_url }}', '_blank')"
+              style="cursor: pointer"
+            >
+              {{ recipe.recipe_title }}
+            </p>
+          </div>
+
           {% endif %} {% endfor %}
         </td>
         {% endfor %}
