@@ -1,28 +1,28 @@
-// Find the <a> element with matching href and add 'active' class
-var currentPath = window.location.pathname;
-document.querySelectorAll(".navbar-nav .nav-link").forEach(function (link) {
-  if (link.getAttribute("href") === currentPath) {
+/** Adding "active" to activated navbar links including the searchbar */
+const activePath = window.location.pathname;
+const navLinks = document.querySelectorAll(".nav-link").forEach((link) => {
+  if (link.getAttribute("href") === activePath) {
     link.classList.add("active");
   }
 });
 
-function activateSearchbar() {
-  console.log("activating search bar");
-  document.querySelector(".searchbar").classList.add("active");
+function activateSearchbar(isActive) {
+  if (isActive) {
+    console.log("activating search bar");
+    document.querySelector(".searchbar").classList.add("active");
+  } else {
+    console.log("deactivating search bar");
+    document.querySelector(".searchbar").classList.remove("active");
+  }
 }
 
-function deactivateSearchbar() {
-  console.log("deactivating search bar");
-  document.querySelector(".searchbar").classList.remove("active");
-}
-
-function clearInput() {
-  var input = document.querySelector(".searchbar-input");
+/** Handle the clear search bar button */
+function clearSearchBar() {
+  let input = document.querySelector(".searchbar-input");
   input.value = "";
-  input.focus(); // Keep focus on the input after clearing
 }
 
-/******* Cards *******/
+/** Make cards look like Pinterest by assigning them a random card size */
 const cards = document.querySelectorAll(".card-item");
 const cardClasses = ["card-small", "card-regular", "card-large"];
 
@@ -37,31 +37,37 @@ cards.forEach((card) => {
   card.classList.add(randomClass);
 });
 
-/******* Sunday *******/
+/** Creating the Sundays drop down for the meal planner form */
 // Getting a list of Sundays
 function getSundays() {
   let sundays = [];
-  let currentDate = new Date();
-
-  console.log("Today's date:", currentDate);
+  let currentSunday = new Date();
 
   // Set to the current week's Sunday
-  currentDate.setDate(currentDate.getDate() - ((currentDate.getDay() + 7) % 7));
-  console.log("This Sunday:", currentDate);
+  currentSunday.setDate(
+    currentSunday.getDate() - ((currentSunday.getDay() + 7) % 7)
+  );
+  // console.log("Current Sunday:", currentSunday);
 
   // Generate next 5 Sundays
   for (let i = 0; i < 5; i++) {
-    sundays.push(new Date(currentDate));
-    currentDate.setDate(currentDate.getDate() + 7);
+    sundays.push(new Date(currentSunday));
+    currentSunday.setDate(currentSunday.getDate() + 7);
   }
+  // console.log(sundays);
 
   return sundays;
 }
 
 // Populating the list of Sundays in a dropdown
-function populateSundaysDropdown(weekStart) {
+function populateSundaysDropdown() {
   const sundays = getSundays();
   const sundaysDropdown = document.getElementById("week_start");
+
+  if (!sundaysDropdown) {
+    console.error("Dropdown element with ID 'week_start' not found");
+    return;
+  }
 
   // Create a new <option> element that is a placeholder
   const disabledOption = document.createElement("option");
@@ -77,50 +83,46 @@ function populateSundaysDropdown(weekStart) {
     const option = document.createElement("option");
     option.value = sunday.toDateString();
     option.textContent = sunday.toDateString();
-
-    // Set selected attribute if this option matches week_start
-    if (sunday.toDateString() === weekStart) {
-      option.selected = true;
-    }
-
     sundaysDropdown.appendChild(option);
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the selected week_start value from the URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const weekStart = urlParams.get("week_start");
+/** Validating that everything in the meal planner form was filled out */
+function validateMealPlannerForm(meal) {
+  let weekStart = document.getElementById("week_start").value;
+  let day = document.getElementById("day").value;
 
-  populateSundaysDropdown(weekStart);
-
-  // Function to check if all required inputs are filled
-  function validateForm() {
-    var weekStart = document.getElementById("week_start").value;
-    var day = document.getElementById("day").value;
-    var meal = document.querySelector('input[name="meal"]:checked');
-
-    // Check if both inputs have values
-    if (weekStart && day && meal) {
-      document.getElementById("submitButton").disabled = false; // Enable submit button
-    } else {
-      document.getElementById("submitButton").disabled = true; // Disable submit button
-    }
+  // Check if both inputs have values
+  if (weekStart && day && meal) {
+    document.getElementById("submitButton").disabled = false; // Enable submit button
+  } else {
+    document.getElementById("submitButton").disabled = true; // Disable submit button
   }
+}
 
-  // Initially disable the submit button
-  document.getElementById("submitButton").disabled = true;
-
-  // Trigger validation on change of inputs
-  document
-    .getElementById("week_start")
-    .addEventListener("change", validateForm);
-  document.getElementById("day").addEventListener("change", validateForm);
-
-  var mealRadios = document.querySelectorAll('input[name="meal"]');
-  mealRadios.forEach(function (radio) {
-    radio.addEventListener("change", validateForm);
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname === "/meal-planner-form") {
+    // Disable the add button
+    document.getElementById("submitButton").disabled = true;
+    // Get the sundays dropdown
+    populateSundaysDropdown();
+    let meal;
+    let radioButtons = document.querySelectorAll(".form-check-input");
+    radioButtons.forEach((button) => {
+      button.addEventListener("change", function () {
+        if (this.checked) {
+          meal = button.value;
+        }
+      });
+    });
+    document.addEventListener("change", (event) => {
+      validateMealPlannerForm(meal);
+    });
+  }
+  if (window.location.pathname === "/meal-planner") {
+    // Get the sundays dropdown
+    populateSundaysDropdown();
+  }
 });
 
 // handling the click event to delete a recipe

@@ -64,25 +64,27 @@
           <option value="friday">Friday</option>
           <option value="saturday">Saturday</option>
         </select>
-        <label for="meal" class="form-label nunito-sans-regular"
-          >What type of meal is this for?</label
-        >
-        {% for meal in ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'] %}
-        <div class="form-check nunito-sans-semibold">
-          <div class="form-check-content">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="meal"
-              id="{{ meal }}"
-              value="{{ meal }}"
-            />
-            <label class="form-check-label" for="{{ meal }}"
-              >{{ meal|capitalize }}</label
-            >
+        <fieldset class="meal-type-fieldset">
+          <legend class="form-label nunito-sans-regular">
+            What type of meal is this for?
+          </legend>
+          {% for meal in ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'] %}
+          <div class="form-check nunito-sans-semibold">
+            <div class="form-check-content">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="meal"
+                id="{{ meal }}"
+                value="{{ meal }}"
+              />
+              <label class="form-check-label" for="{{ meal }}"
+                >{{ meal|capitalize }}</label
+              >
+            </div>
           </div>
-        </div>
-        {% endfor %}
+          {% endfor %}
+        </fieldset>
       </div>
     </form>
   </div>

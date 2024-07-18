@@ -40,11 +40,11 @@
           autocomplete="off"
           placeholder="Search..."
           value="{{ query }}"
-          onfocus="activateSearchbar()"
-          onblur="deactivateSearchbar()"
+          onfocus="activateSearchbar(true)"
+          onblur="activateSearchbar(false)"
         />
         <button type="submit" style="display: none"></button>
-        <button class="input-clear" onclick="clearInput()">
+        <button class="input-clear" onclick="clearSearchBar()">
           <img
             class="clear-img"
             src="./static/clear.png"
