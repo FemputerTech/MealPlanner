@@ -274,6 +274,7 @@ nav {
   position: relative;
   background-color: var(--background-dark);
   border-radius: 50%;
+  cursor: pointer;
   overflow: hidden;
   transition: transform 0.4s;
   width: 100px;

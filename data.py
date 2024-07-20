@@ -1,41 +1,77 @@
 popular_top = [
     {
         "title": "breakfast",
-        "image": "/static/images/breakfast.png"
+        "image": "/static/images/breakfast.png",
+        "meal_type": "breakfast",
+        "cuisine_type": "",
+        "health": "",
+        "dish_type": "",
     },
     {
         "title": "lunch",
-        "image": "/static/images/lunch.png"
+        "image": "/static/images/lunch.png",
+        "meal_type": "lunch",
+        "cuisine_type": "",
+        "health": "",
+        "dish_type": "",
     },
     {
         "title": "japanese",
-        "image": "/static/images/japanese.png"
+        "image": "/static/images/japanese.png",
+        "meal_type": "",
+        "cuisine_type": "japanese",
+        "health": "",
+        "dish_type": "",
     },
     {
         "title": "vegan",
-        "image": "/static/images/vegan.png"
+        "image": "/static/images/vegan.png",
+        "meal_type": "",
+        "cuisine_type": "",
+        "health": "vegan",
+        "dish_type": "",
     },
     {
         "title": "gluten-free",
-        "image": "/static/images/glutenfree.png"
+        "image": "/static/images/glutenfree.png",
+        "meal_type": "",
+        "cuisine_type": "",
+        "health": "gluten-free",
+        "dish_type": "",
     },
 ]
 
 popular_bottom = [
     {
         "title": "mexican",
-        "image": "/static/images/mexican.png"
+        "image": "/static/images/mexican.png",
+        "meal_type": "",
+        "cuisine_type": "mexican",
+        "health": "",
+        "dish_type": "",
     },
     {
         "title": "dinner",
-        "image": "/static/images/dinner.png"
+        "image": "/static/images/dinner.png",
+        "meal_type": "dinner",
+        "cuisine_type": "",
+        "health": "",
+        "dish_type": "",
     },
     {
         "title": "salad",
-        "image": "/static/images/salad.png"
+        "image": "/static/images/salad.png",
+        "meal_type": "",
+        "cuisine_type": "",
+        "health": "",
+        "dish_type": "salad",
     },
     {
         "title": "italian",
-        "image": "/static/images/italian.png"
+        "image": "/static/images/italian.png",
+        "meal_type": "",
+        "cuisine_type": "italian",
+        "health": "",
+        "dish_type": "",
     },
 ]

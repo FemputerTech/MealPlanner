@@ -31,26 +31,50 @@
   <div class="circles">
     <div class="circle-container-top">
       {% for popular in popularTop %}
-      <div class="circle-container">
-        <div class="circle">
+      <form
+        class="circle-container"
+        method="POST"
+        action="{{ url_for('search') }}"
+      >
+        <input type="hidden" name="meal-type" value="{{ popular.meal_type }}" />
+        <input
+          type="hidden"
+          name="cuisine-type"
+          value="{{ popular.cuisine_type }}"
+        />
+        <input type="hidden" name="health" value="{{ popular.health }}" />
+        <input type="hidden" name="dish-type" value="{{ popular.dish_type }}" />
+        <button class="circle" type="submit">
           <img class="circle-image" src="{{ popular.image }}" />
-        </div>
+        </button>
         <div class="circle-title">
           <p>{{ popular.title }}</p>
         </div>
-      </div>
+      </form>
       {% endfor %}
     </div>
     <div class="circle-container-bottom">
       {% for popular in popularBottom %}
-      <div class="circle-container">
-        <div class="circle">
+      <form
+        class="circle-container"
+        method="POST"
+        action="{{ url_for('search') }}"
+      >
+        <input type="hidden" name="meal-type" value="{{ popular.meal_type }}" />
+        <input
+          type="hidden"
+          name="cuisine-type"
+          value="{{ popular.cuisine_type }}"
+        />
+        <input type="hidden" name="health" value="{{ popular.health }}" />
+        <input type="hidden" name="dish-type" value="{{ popular.dish_type }}" />
+        <button class="circle" type="submit">
           <img class="circle-image" src="{{ popular.image }}" />
-        </div>
+        </button>
         <div class="circle-title">
           <p>{{ popular.title }}</p>
         </div>
-      </div>
+      </form>
       {% endfor %}
     </div>
   </div>
