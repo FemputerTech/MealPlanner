@@ -57,18 +57,21 @@ class Search(MethodView):
         health = request.form.get('health')
         dish_type = request.form.get('dish-type')
 
-        print("query:", query)
-        print("meal type:", meal_type)
-        print("cuisine type:", cuisine_type)
-        print("health:", health)
-        print("dish type:", dish_type)
+        if query == "":
+            query = None
+        if meal_type is None:
+            meal_type = ""
+        if cuisine_type is None:
+            cuisine_type = ""
+        if health is None:
+            health = ""
+        if dish_type is None:
+            dish_type = ""
 
         search_results = self.search_recipes(query, meal_type, cuisine_type, health, dish_type)
 
         if search_results:
             recipes = search_results.get('hits', [])
-            if query == None:
-                query = ""
             return render_template('search.html', recipes=recipes, query=query)
         else:
             return 'Failed to fetch search results', 500
@@ -92,7 +95,7 @@ class Search(MethodView):
 
         # filter out the None value parameters
         filtered_params = {param_key: param_value for param_key, param_value in params.items() if param_value != ""}
-           
+        print("filtered:", filtered_params)
         query_string = '&'.join([f"{param_key}={param_value}" for param_key, param_value in filtered_params.items()])
         full_url = f"{base_url}?{query_string}"
         print("Full URL:", full_url)
