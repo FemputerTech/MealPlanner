@@ -1,3 +1,10 @@
+function scrollToSection(sectionId) {
+  let section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 /** Adding "active" to activated navbar links including the searchbar */
 const activePath = window.location.pathname;
 const navLinks = document.querySelectorAll(".nav-link").forEach((link) => {
