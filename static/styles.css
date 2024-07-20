@@ -116,6 +116,15 @@ nav {
   border-radius: 10px;
 }
 
+.searchbar.active {
+  outline: 2px solid #92c1ff;
+}
+
+.searchbar:hover,
+.search-input:hover {
+  cursor: pointer;
+}
+
 .search-image {
   padding: 10px;
 }
@@ -128,6 +137,10 @@ nav {
 
 .search-input::placeholder {
   color: var(--text-normal);
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 /* ****************** Headings ****************** */
