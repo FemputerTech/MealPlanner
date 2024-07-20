@@ -17,8 +17,42 @@
     </div>
   </div>
   <div class="hero-image">
-    <img class="image" src="./static/hero-image.png" alt="food" />
+    <img class="image" src="./static/images/hero.png" alt="food" />
   </div>
 </section>
-<section class="start-content" id="start">Get Started</section>
+<section class="start-section" id="start">
+  <div class="start-content">
+    <h2>Popular Recipes</h2>
+    <p>
+      Find popular recipes for every meal and dietary need. Get inspired and
+      cook with confidence.
+    </p>
+  </div>
+  <div class="circles">
+    <div class="circle-container-top">
+      {% for popular in popularTop %}
+      <div class="circle-container">
+        <div class="circle">
+          <img class="circle-image" src="{{ popular.image }}" />
+        </div>
+        <div class="circle-title">
+          <p>{{ popular.title }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="circle-container-bottom">
+      {% for popular in popularBottom %}
+      <div class="circle-container">
+        <div class="circle">
+          <img class="circle-image" src="{{ popular.image }}" />
+        </div>
+        <div class="circle-title">
+          <p>{{ popular.title }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}

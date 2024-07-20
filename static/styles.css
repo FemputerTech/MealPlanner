@@ -14,7 +14,8 @@
 :root {
   --primary-color: #ff3c1a;
   --body-color: #fffcfb;
-  --background-dark: #f7eeee;
+  --body-color-alt: #f7eeee;
+  --background-dark: #c5bebe;
   --navbar-color: transparent;
 
   --text-normal: #211c1b;
@@ -111,7 +112,7 @@ nav {
 .searchbar {
   display: flex;
   align-items: center;
-  background-color: var(--background-dark);
+  background-color: var(--body-color-alt);
   border: none;
   border-radius: 10px;
 }
@@ -213,87 +214,83 @@ nav {
 }
 
 /* ****************** Start Content ****************** */
+.start-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--body-color-alt);
+  padding-top: 80px;
+}
+
 .start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin-bottom: 50px;
+}
+
+.start-content h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 40px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.start-content p {
+  line-height: 22px;
+  text-align: center;
+}
+
+.circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.circle-container-bottom,
+.circle-container-top {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  position: relative;
   background-color: var(--background-dark);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.4s;
+  width: 100px;
   height: 100px;
 }
 
-/* ****************** Headings ****************** */
-h1 {
-  font-size: 60px;
-  line-height: 76px;
-  margin: 0;
+.circle:hover {
+  transform: scale(0.8);
 }
 
-h3 {
-  margin: 10px;
+.circle-image {
+  position: absolute;
+  object-fit: cover;
+  width: 110%;
+  height: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-p {
-  margin: 0;
-  margin-bottom: 14px;
-}
-
-.section {
-  margin-left: 180px;
-  margin-right: 180px;
-}
-
-/* ****************** Font Classes ****************** */
-.nunito-sans-thin {
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-light {
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-regular {
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-semibold {
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-bold {
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-/* ****************** Home Styling ****************** */
-.home-section {
-  margin-top: 100px;
-}
-
-.search-button {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  margin: 10px 0;
+.circle-title p {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 /* ****************** Search Styling ****************** */
