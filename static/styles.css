@@ -113,7 +113,7 @@ nav {
 }
 
 .nav-link:hover {
-  /* background-color: var(--hover-color); */
+  color: var(--primary-color);
   border-radius: 50px;
 }
 
