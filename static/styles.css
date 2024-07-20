@@ -12,9 +12,9 @@
 }
 
 :root {
-  --primary-color: #d45945;
+  --primary-color: #ff3c1a;
   --body-color: #ffffff;
-  --navbar-color: darkgray;
+  --navbar-color: transparent;
 
   --text-normal: #211c1b;
   --text-light: #fbf6f4;
@@ -62,13 +62,13 @@ main {
 }
 
 .logo-image {
-  width: 20px;
+  width: 18px;
   margin-right: 6px;
 }
 
 .logo-text {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 nav {
@@ -106,6 +106,28 @@ nav {
 .nav-link:hover {
   /* background-color: var(--hover-color); */
   border-radius: 50px;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 10px;
+}
+
+.search-image {
+  padding: 10px;
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  padding: 10px 0;
+}
+
+.search-input::placeholder {
+  color: var(--text-normal);
 }
 
 /* ****************** Headings ****************** */
