@@ -11,9 +11,9 @@
       <button class="start-button" onclick="scrollToSection('start')">
         Get Started
       </button>
-      <button class="explore-button" onclick="window.location.href='/search'">
-        Explore Recipes
-      </button>
+      <form method="POST" action="{{ url_for('search') }}">
+        <button class="explore-button" type="submit">Explore Recipes</button>
+      </form>
     </div>
   </div>
   <div class="hero-image">

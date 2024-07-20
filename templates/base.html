@@ -38,7 +38,15 @@
             <a class="nav-link" id="about" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="search" href="/search">Recipes</a>
+            <form method="POST" action="{{ url_for('search') }}">
+              <button
+                class="nav-link"
+                type="submit"
+                style="background-color: transparent; border: none"
+              >
+                Recipes
+              </button>
+            </form>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="planner" href="/meal-planner">Planner</a>
@@ -57,7 +65,7 @@
           name="query"
           autocomplete="off"
           placeholder="Search..."
-          value="{{ query }}"
+          value="{{ query if query else '' }}"
           onfocus="activateSearchbar(true)"
           onblur="activateSearchbar(false)"
         />
