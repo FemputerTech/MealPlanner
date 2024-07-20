@@ -1,16 +1,24 @@
 <!-- extend base template -->
 {% extends "base.html" %} {% block content %}
-<div class="home-section">
-  <h1 class="nunito-sans-semibold">
-    Welcome to
-    <span style="color: var(--beet); font-weight: 900;">beet.</span>
-  </h1>
-  <h3 class="nunito-sans-regular">A recipe finder and meal planner tool.</h3>
-  <button
-    class="search-button nunito-sans-semibold"
-    onclick="window.location.href='/search'"
-  >
-    Search for recipes
-  </button>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Unearth Your Next Favorite Recipe</h1>
+    <p>
+      Find new recipes, plan your meals, and enjoy home-cooked goodness.
+      Discover, plan, and savor every bite.
+    </p>
+    <div class="hero-buttons">
+      <button class="start-button" onclick="window.location.href='#start'">
+        Get Started
+      </button>
+      <button class="explore-button" onclick="window.location.href='/search'">
+        Explore Recipes
+      </button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img class="image" src="./static/hero-image.png" alt="food" />
+  </div>
+</section>
+<section class="start-content" id="start">Get Started</section>
 {% endblock %}

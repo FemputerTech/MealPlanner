@@ -13,7 +13,8 @@
 
 :root {
   --primary-color: #ff3c1a;
-  --body-color: #ffffff;
+  --body-color: #fffcfb;
+  --background-dark: #f7eeee;
   --navbar-color: transparent;
 
   --text-normal: #211c1b;
@@ -40,7 +41,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--navbar-color);
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   height: 80px;
   top: 0;
@@ -48,7 +49,6 @@ header {
 }
 
 main {
-  padding: 0 100px;
   width: 100%;
   height: calc(100vh - 80px);
 }
@@ -111,7 +111,7 @@ nav {
 .searchbar {
   display: flex;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: var(--background-dark);
   border: none;
   border-radius: 10px;
 }
@@ -141,6 +141,81 @@ nav {
 
 .search-input:focus {
   outline: none;
+}
+
+/* ****************** Hero ****************** */
+.hero {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 0 100px;
+  padding: 100px 20px;
+  width: 40%;
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+}
+
+.hero .image {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.hero-content h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.hero-content p {
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.start-button,
+.explore-button {
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 700;
+  width: 140px;
+  height: 44px;
+}
+
+.start-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+}
+
+.explore-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+/* ****************** Start Content ****************** */
+.start-content {
+  background-color: var(--background-dark);
+  height: 100px;
 }
 
 /* ****************** Headings ****************** */
