@@ -9,8 +9,8 @@ class Model():
 
     Methods:
     -------
-    select():
-        Retrieves all recipes from the database.
+    select(day):
+        Retrieves all recipes from the database for a specific day.
     
     insert_recipe(recipe_id, recipe_title, recipe_url, recipe_day, recipe_meal):
         Inserts a recipe into the database.
@@ -20,14 +20,14 @@ class Model():
     """
 
 
-    def select(self):
+    def select(self, day):
         """
-        Retrieves all recipes from the database.
+        Retrieves all recipes from the database based on the day selected.
         
         Returns:
         -------
         tuple
-            A tuple containing all rows of recipes from the database.
+            A tuple containing all rows of recipes from the database for that day.
         """
         pass
 

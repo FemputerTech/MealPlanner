@@ -35,8 +35,8 @@ class model(Model):
     __init__():
         Initialize the model with a GCP Datastore client.
 
-    select_recipe(selected_week):
-        Retrieves all recipes from the datastore for a selected week.
+    select(day):
+        Retrieves all recipes from the datastore for a specific day.
 
     insert_recipe(recipe_id, recipe_title, recipe_url, recipe_day, recipe_meal):
         Inserts a recipe into the datastore.
@@ -53,16 +53,17 @@ class model(Model):
         self.client = datastore.Client('cloud-mealplanner-leicht')
 
 
-    def select(self):
+    def select(self, day):
         """
-        Retrieves all recipes from the datastore.
+        Retrieves all recipes from the datastore based on the day selected.
 
         Returns:
         -------
         list of lists
-            A list containing all rows of recipes from the datastore.
+            A list containing all rows of recipes from the datastore for that day.
         """
         query = self.client.query(kind = 'Recipes')
+        query.add_filter('recipe_day', "=", day)
         entities = query.fetch()
         return [from_datastore(entity) for entity in entities]
 

@@ -1,6 +1,19 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
-<div class="meal-planner-section">
+<section class="meal-planner-section">
+  <div class="days">
+    {% for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+    "Friday", "Saturday"] %}
+    <form method="GET" action="{{ url_for('meal-planner') }}">
+      <input type="hidden" name="day" value="{{ day }}" />
+      <button type="submit">
+        <h2>{{ day }}</h2>
+      </button>
+    </form>
+    {% endfor %}
+  </div>
+</section>
+<!-- <div class="meal-planner-section">
   <h1>Meal Planner</h1>
   <table>
     <thead>
@@ -49,5 +62,5 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
+</div> -->
 {% endblock %}

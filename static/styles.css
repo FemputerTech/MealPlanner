@@ -504,30 +504,16 @@ nav {
   bottom: 30%;
 }
 
-/* ****************** Meal Planner Styling ****************** */
-.sunday-form {
-  /* display: flex;
-  align-items: center; */
+/* ****************** Meal Planner ****************** */
+.meal-planner-section {
+  margin: 50px 100px;
+}
+.days {
+  display: flex;
+  justify-content: space-between;
 }
 
-.submit-button {
-  background-color: black;
-  color: #e1e1e1;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 80px;
-  height: 40px;
-}
-
-.submit-button:hover {
-  background-color: var(--primary-color);
-}
-
-table {
+/* table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -542,4 +528,4 @@ table td {
 
 table th {
   background-color: #f19686;
-}
+} */
