@@ -31,7 +31,6 @@ class MealPlanner(MethodView):
             The rendered HTML template for the meal planner page with the selected week's recipes.
         """
         selected_week = request.args.get('week_start')
-        print("selected week:", selected_week)
         model=mpmodel.get_model()
         recipes = [dict(id=row[0], recipe_id=row[1], recipe_title=row[2], recipe_url=row[3], recipe_week_start=row[4], recipe_week_end=row[5], recipe_day=row[6], recipe_meal=row[7]) for row in model.select_recipe(selected_week)]
         return render_template("mealPlanner.html", week_start=selected_week, recipes=recipes)
@@ -49,7 +48,6 @@ class MealPlanner(MethodView):
         """
         
         recipe = json.loads(request.data)
-        print("recipe:", recipe)
         id = recipe['id']
         if id:
             model = mpmodel.get_model()

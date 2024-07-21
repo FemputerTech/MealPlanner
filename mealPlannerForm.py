@@ -37,8 +37,6 @@ class MealPlannerForm(MethodView):
         parsed_ref = urlparse(ref)
         recipe_id = parsed_ref.path.split('/')[-1]
 
-        # print('recipe id:', recipe_id)
-
         return render_template("mealPlannerForm.html", recipe_title=title, recipe_image=image, recipe_url=url, recipe_id = recipe_id)
     
     
