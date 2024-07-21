@@ -19,6 +19,7 @@ To run the application, execute this script.
 import os
 import flask
 from index import Index
+from about import About
 from search import Search
 from mealPlannerForm import MealPlannerForm
 from mealPlanner import MealPlanner
@@ -37,6 +38,13 @@ APP_KEY = os.getenv('APP_KEY')
 # URL routing for the main landing page
 app.add_url_rule('/',
                  view_func=Index.as_view('index'),
+                 methods=['GET']
+                 )
+
+
+# URL routing for the about page
+app.add_url_rule('/about',
+                 view_func=About.as_view('about'),
                  methods=['GET']
                  )
 
