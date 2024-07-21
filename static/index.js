@@ -51,7 +51,7 @@ function deleteRecipe(id) {
   let weekStart = document.getElementById("week_start").value.split(" ");
   console.log("deleting:", id);
   console.log("week:", weekStart);
-  fetch("/delete", {
+  fetch("/meal-planner", {
     method: "DELETE",
     body: JSON.stringify({ id: id }),
   }).then((_res) => {
