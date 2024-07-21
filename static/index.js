@@ -47,15 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // handling the click event to delete a recipe
-function deleteRecipe(id) {
-  let weekStart = document.getElementById("week_start").value.split(" ");
+function deleteRecipe(id, day) {
   console.log("deleting:", id);
-  console.log("week:", weekStart);
   fetch("/meal-planner", {
     method: "DELETE",
     body: JSON.stringify({ id: id }),
   }).then((_res) => {
-    window.location.href = `/meal-planner?week_start=${weekStart[0]}+${weekStart[1]}+${weekStart[2]}+${weekStart[3]}`;
+    window.location.href = `/meal-planner?day=${day}`;
   });
 }
 

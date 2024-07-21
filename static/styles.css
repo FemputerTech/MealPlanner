@@ -507,25 +507,64 @@ nav {
 /* ****************** Meal Planner ****************** */
 .meal-planner-section {
   margin: 50px 100px;
+  height: 100vh;
 }
+
 .days {
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid var(--primary-color);
 }
 
-/* table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th,
-table td {
-  border: 1px solid #ede1df;
+.day-button {
+  background-color: transparent;
+  border: none;
   padding: 10px;
-  text-align: left;
 }
 
-table th {
-  background-color: #f19686;
-} */
+.day-button:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.day-button h2 {
+  text-transform: capitalize;
+}
+
+.meals {
+  margin: 20px 0;
+}
+
+.meals h1 {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.meal-card {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid var(--body-color-alt);
+  border-radius: 20px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.meal-card-image {
+  background-color: black;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.meal-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}

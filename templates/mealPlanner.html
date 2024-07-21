@@ -2,65 +2,41 @@
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <section class="meal-planner-section">
   <div class="days">
-    {% for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-    "Friday", "Saturday"] %}
+    {% for day in ["sunday", "monday", "tuesday", "wednesday", "thursday",
+    "friday", "saturday"] %}
     <form method="GET" action="{{ url_for('meal-planner') }}">
       <input type="hidden" name="day" value="{{ day }}" />
-      <button type="submit">
+      <button class="day-button" type="submit">
         <h2>{{ day }}</h2>
       </button>
     </form>
     {% endfor %}
   </div>
+  {% for meal in ["breakfast", "lunch", "dinner", "dessert", "snack"] %}
+  <div class="meals">
+    <h1>{{ meal }}</h1>
+    {% for recipe in recipes %} {% if recipe.recipe_meal == meal %}
+    <div class="meal-card">
+      <div class="meal-card-image">
+        <img
+          src="{{ recipe.recipe_image }}"
+          onclick="window.open('{{ recipe.recipe_url }}', '_blank')"
+          style="cursor: pointer"
+        />
+      </div>
+      <div class="meal-card-content">
+        <h2>{{ recipe.recipe_title }}</h2>
+        <button
+          type="button"
+          class="delete"
+          onClick="deleteRecipe('{{ recipe.id }}', '{{ recipe.recipe_day }}')"
+        >
+          &times; Delete
+        </button>
+      </div>
+    </div>
+    {% endif %}{% endfor %}
+  </div>
+  {%endfor %}
 </section>
-<!-- <div class="meal-planner-section">
-  <h1>Meal Planner</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>
-          {% for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-          "Friday", "Saturday"] %}
-        </th>
-
-        <th>
-          <div><span>{{ day }}</span></div>
-        </th>
-        {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for meal in ["breakfast", "lunch", "dinner", "dessert", "snack"] %}
-      <tr>
-        <th>{{ meal|capitalize }}</th>
-        {% for day in ["sunday", "monday", "tuesday", "wednesday", "thursday",
-        "friday", "saturday"] %}
-        <td>
-          {% for recipe in recipes %} {% if recipe.recipe_meal == meal and
-          recipe.recipe_day == day %}
-          <div>
-            <p
-              class="meal-title"
-              onclick="window.open('{{ recipe.recipe_url }}', '_blank')"
-              style="cursor: pointer"
-            >
-              {{ recipe.recipe_title }}
-            </p>
-            <button
-              type="button"
-              class="close"
-              onClick="deleteRecipe('{{ recipe.id }}')"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          {% endif %} {% endfor %}
-        </td>
-        {% endfor %}
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div> -->
 {% endblock %}
