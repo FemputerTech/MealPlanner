@@ -5,7 +5,6 @@ search feature of the Recipe and Meal Planner application.
 import requests
 from flask import request, render_template
 from flask.views import MethodView
-import json
 
 class Search(MethodView):
     """

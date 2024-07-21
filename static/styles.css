@@ -552,6 +552,12 @@ nav {
 .meal-card-image {
   background-color: black;
   border-radius: 20px;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+
+.meal-image {
   width: 200px;
   height: 200px;
 }

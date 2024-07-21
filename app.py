@@ -62,7 +62,7 @@ app.add_url_rule('/meal-planner-form',
 
 # URL routing for the meal planner
 app.add_url_rule('/meal-planner',
-                 view_func=MealPlanner.as_view('meal-planner'),
+                 view_func=MealPlanner.as_view('meal-planner', app_id=APP_ID, app_key=APP_KEY),
                  methods=['GET', 'DELETE'])
 
 
