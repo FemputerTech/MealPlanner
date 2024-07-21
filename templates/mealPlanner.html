@@ -6,7 +6,7 @@
     "friday", "saturday"] %}
     <form method="GET" action="{{ url_for('meal-planner') }}">
       <input type="hidden" name="day" value="{{ day }}" />
-      <button class="day-button" type="submit">
+      <button class="day-button" type="submit" value="{{ day }}">
         <h2>{{ day }}</h2>
       </button>
     </form>

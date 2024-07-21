@@ -5,12 +5,25 @@ function scrollToSection(sectionId) {
   }
 }
 
-/** Adding "active" to activated navbar links including the searchbar */
-const activePath = window.location.pathname;
-const navLinks = document.querySelectorAll(".nav-link").forEach((link) => {
-  if (link.getAttribute("href") === activePath) {
-    link.classList.add("active");
-  }
+/** Adding "active" to activated navbar links */
+document.addEventListener("DOMContentLoaded", () => {
+  const activePath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-link").forEach((link) => {
+    if (link.getAttribute("href") === activePath) {
+      link.classList.add("active");
+    }
+  });
+});
+
+/** Adding "active" to activated planner days */
+document.addEventListener("DOMContentLoaded", () => {
+  const activePath = window.location.href.split("=");
+  const activeDay = activePath[1];
+  document.querySelectorAll(".day-button").forEach((day) => {
+    if (day.getAttribute("value") === activeDay) {
+      day.classList.add("active");
+    }
+  });
 });
 
 function activateSearchbar(isActive) {

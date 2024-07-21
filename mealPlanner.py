@@ -50,8 +50,6 @@ class MealPlanner(MethodView):
         model=mpmodel.get_model()
         recipes = [dict(id=row[0], recipe_id=row[1], recipe_title=row[2], recipe_url=row[3], recipe_day=row[4], recipe_meal=row[5]) for row in model.select(day)]
         
-        recipe_image = 'recipe_image'
-
         for recipe in recipes:
             recipe['recipe_image'] = self.getImageUrl(recipe['recipe_id'])  
         
@@ -87,7 +85,8 @@ class MealPlanner(MethodView):
         response = requests.get(full_url, params=params)
         results = response.json()
         if results:
-            return results['recipe']['image']
+            recipe_image = results['recipe']['image']
+            return recipe_image
         else:
             return 'Failed to fetch recipe results', 500
 
