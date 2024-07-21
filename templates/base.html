@@ -38,22 +38,14 @@
             <a class="nav-link" id="about" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <form method="POST" action="{{ url_for('search') }}">
-              <button
-                class="nav-link"
-                type="submit"
-                style="background-color: transparent; border: none"
-              >
-                Recipes
-              </button>
-            </form>
+            <a class="nav-link" id="search" href="/search">Recipes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="planner" href="/meal-planner">Planner</a>
           </li>
         </ul>
       </nav>
-      <form class="searchbar" method="POST" action="{{ url_for('search') }}">
+      <form class="searchbar" method="GET" action="{{ url_for('search') }}">
         <img
           class="search-image"
           src="./static/icons/magnifyingglass.svg"

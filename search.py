@@ -1,5 +1,5 @@
 """
-This module defines the view for handling GET and POST requests for the 
+This module defines the view for handling GET requests for the 
 search feature of the Recipe and Meal Planner application.
 """
 import requests
@@ -14,7 +14,6 @@ class Search(MethodView):
     Methods:
     -------
     get(): Handles GET requests to the search page.
-    post(): Handles POST requests to the search page.
     """
 
     
@@ -42,25 +41,15 @@ class Search(MethodView):
         response : str
             The rendered HTML template for the search page.
         """
-        print("searching...")
-        search_results = self.search_recipes("recipes")
-        if search_results:
-            recipes = search_results.get('hits', [])
-            return render_template('search.html', recipes=recipes)
-        else:
-            return 'Failed to fetch search results', 500
+        print("Getting Recipes from the server")
+        query = request.args.get('query')
+        meal_type = request.args.get('meal-type')
+        cuisine_type = request.args.get('cuisine-type')
+        health = request.args.get('health')
+        dish_type = request.args.get('dish-type')
 
-
-    def post(self):
-        
-        query = request.form.get('query')
-        meal_type = request.form.get('meal-type')
-        cuisine_type = request.form.get('cuisine-type')
-        health = request.form.get('health')
-        dish_type = request.form.get('dish-type')
-
-        if query == "":
-            query = None
+        if query is None and (meal_type is None or cuisine_type is None or health is None or dish_type is None):
+            query = "recipes"
         if meal_type is None:
             meal_type = ""
         if cuisine_type is None:
@@ -70,18 +59,6 @@ class Search(MethodView):
         if dish_type is None:
             dish_type = ""
 
-        search_results = self.search_recipes(query, meal_type, cuisine_type, health, dish_type)
-
-        if search_results:
-            recipes = search_results.get('hits', [])
-            return render_template('search.html', recipes=recipes, query=query)
-        else:
-            return 'Failed to fetch search results', 500
-        
-        
-    # Function to interact with the Edamam API to search for recipes
-    def search_recipes(self, query, meal_type, cuisine_type, health, dish_type):
-        print("searching for recipes...")
         base_url="https://api.edamam.com/api/recipes/v2"
         params = {
             'type': "public",
@@ -97,14 +74,12 @@ class Search(MethodView):
 
         # filter out the None value parameters
         filtered_params = {param_key: param_value for param_key, param_value in params.items() if param_value != ""}
-        print("filtered:", filtered_params)
         query_string = '&'.join([f"{param_key}={param_value}" for param_key, param_value in filtered_params.items()])
         full_url = f"{base_url}?{query_string}"
-        print("Full URL:", full_url)
         response = requests.get(full_url, params=filtered_params)
-
-        if response.status_code == 200:
-            return response.json()
+        search_results = response.json()
+        if search_results:
+            recipes = search_results.get('hits', [])
+            return render_template('search.html', recipes=recipes)
         else:
-            return None
-
+            return 'Failed to fetch search results', 500

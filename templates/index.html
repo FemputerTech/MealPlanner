@@ -11,9 +11,9 @@
       <button class="start-button" onclick="scrollToSection('start')">
         Get Started
       </button>
-      <form method="POST" action="{{ url_for('search') }}">
-        <button class="explore-button" type="submit">Explore Recipes</button>
-      </form>
+      <button class="explore-button" onclick="window.location.href='/search'">
+        Explore Recipes
+      </button>
     </div>
   </div>
   <div class="hero-image">
@@ -33,7 +33,7 @@
       {% for popular in popularTop %}
       <form
         class="circle-container"
-        method="POST"
+        method="GET"
         action="{{ url_for('search') }}"
       >
         <input type="hidden" name="meal-type" value="{{ popular.meal_type }}" />
@@ -57,7 +57,7 @@
       {% for popular in popularBottom %}
       <form
         class="circle-container"
-        method="POST"
+        method="GET"
         action="{{ url_for('search') }}"
       >
         <input type="hidden" name="meal-type" value="{{ popular.meal_type }}" />
