@@ -45,8 +45,6 @@ class MealPlanner(MethodView):
             The rendered HTML template for the meal planner page with all the recipes.
         """
         day = request.args.get('day')
-        if day is None:
-            day = 'sunday'
         model=mpmodel.get_model()
         recipes = [dict(id=row[0], recipe_id=row[1], recipe_title=row[2], recipe_url=row[3], recipe_day=row[4], recipe_meal=row[5]) for row in model.select(day)]
         
