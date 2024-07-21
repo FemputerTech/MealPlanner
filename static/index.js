@@ -30,19 +30,34 @@ function clearSearchBar() {
 }
 
 /** Make cards look like Pinterest by assigning them a random card size */
-const cards = document.querySelectorAll(".card-item");
-const cardClasses = ["card-small", "card-regular", "card-large"];
-
 // Function to pick a random class from cardClasses array
 function getRandomClass() {
-  return cardClasses[Math.floor(Math.random() * cardClasses.length)];
+  const cardClasses = ["card-small", "card-regular", "card-large"];
+  let randomClass = cardClasses[Math.floor(Math.random() * cardClasses.length)];
+  return randomClass;
 }
 
-// Apply random classes to each card-item
-cards.forEach((card) => {
-  const randomClass = getRandomClass();
-  card.classList.add(randomClass);
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card-item");
+  // Apply random classes to each card-item
+  cards.forEach((card) => {
+    const randomClass = getRandomClass();
+    card.classList.add(randomClass);
+  });
 });
+
+// handling the click event to delete a recipe
+function deleteRecipe(id) {
+  let weekStart = document.getElementById("week_start").value.split(" ");
+  console.log("deleting:", id);
+  console.log("week:", weekStart);
+  fetch("/delete", {
+    method: "DELETE",
+    body: JSON.stringify({ id: id }),
+  }).then((_res) => {
+    window.location.href = `/meal-planner?week_start=${weekStart[0]}+${weekStart[1]}+${weekStart[2]}+${weekStart[3]}`;
+  });
+}
 
 /** Creating the Sundays drop down for the meal planner form */
 // Getting a list of Sundays
@@ -131,16 +146,3 @@ document.addEventListener("DOMContentLoaded", () => {
     populateSundaysDropdown();
   }
 });
-
-// handling the click event to delete a recipe
-function deleteRecipe(id) {
-  let weekStart = document.getElementById("week_start").value.split(" ");
-  console.log("deleting:", id);
-  console.log("week:", weekStart);
-  fetch("/delete", {
-    method: "DELETE",
-    body: JSON.stringify({ id: id }),
-  }).then((_res) => {
-    window.location.href = `/meal-planner?week_start=${weekStart[0]}+${weekStart[1]}+${weekStart[2]}+${weekStart[3]}`;
-  });
-}

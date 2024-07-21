@@ -1,11 +1,11 @@
 <!-- extend base template -->
 {% extends "base.html" %}Search{% block content %}
-<div class="search-section">
+<section class="search-section">
   <div class="card-container">
     {% for recipe in recipes %}
-    <div class="card-item card-small nunito-sans-semibold">
+    <div class="card-item card-small">
       <img
-        class="card-img"
+        class="card-image"
         src="{{ recipe.recipe.image }}"
         onclick="window.open('{{ recipe.recipe.url }}', '_blank')"
       />
@@ -31,5 +31,5 @@
     </div>
     {% endfor %}
   </div>
-</div>
+</section>
 {% endblock %}

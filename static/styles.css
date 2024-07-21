@@ -303,18 +303,12 @@ nav {
   margin-top: 10px;
 }
 
-/* ****************** Search Styling ****************** */
+/* ****************** Search ****************** */
 .card-container {
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--card-width));
   grid-auto-rows: var(--row-increment);
   justify-content: center;
-  left: 50%;
-  transform: translate(-50%);
-  margin: 0;
-  padding: 0;
-  width: 80vw;
 }
 
 .card-item {
@@ -340,7 +334,7 @@ nav {
   grid-row-end: span var(--card-large);
 }
 
-.card-img {
+.card-image {
   flex: 1 1 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   object-fit: cover;
@@ -348,10 +342,11 @@ nav {
 }
 
 .card-title {
-  padding: 10px;
+  font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding: 10px;
 }
 
 .card-item:hover {
