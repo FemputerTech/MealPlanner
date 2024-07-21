@@ -59,63 +59,12 @@ function deleteRecipe(id) {
   });
 }
 
-/** Creating the Sundays drop down for the meal planner form */
-// Getting a list of Sundays
-function getSundays() {
-  let sundays = [];
-  let currentSunday = new Date();
-
-  // Set to the current week's Sunday
-  currentSunday.setDate(
-    currentSunday.getDate() - ((currentSunday.getDay() + 7) % 7)
-  );
-  // console.log("Current Sunday:", currentSunday);
-
-  // Generate next 5 Sundays
-  for (let i = 0; i < 5; i++) {
-    sundays.push(new Date(currentSunday));
-    currentSunday.setDate(currentSunday.getDate() + 7);
-  }
-  // console.log(sundays);
-
-  return sundays;
-}
-
-// Populating the list of Sundays in a dropdown
-function populateSundaysDropdown() {
-  const sundays = getSundays();
-  const sundaysDropdown = document.getElementById("week_start");
-
-  if (!sundaysDropdown) {
-    console.error("Dropdown element with ID 'week_start' not found");
-    return;
-  }
-
-  // Create a new <option> element that is a placeholder
-  const disabledOption = document.createElement("option");
-  disabledOption.value = "";
-  disabledOption.textContent =
-    "Select a starting day for your weekly meal planner";
-  disabledOption.disabled = true;
-  disabledOption.selected = true;
-  sundaysDropdown.append(disabledOption);
-
-  // Populate dropdown with Sundays
-  sundays.forEach((sunday) => {
-    const option = document.createElement("option");
-    option.value = sunday.toDateString();
-    option.textContent = sunday.toDateString();
-    sundaysDropdown.appendChild(option);
-  });
-}
-
 /** Validating that everything in the meal planner form was filled out */
 function validateMealPlannerForm(meal) {
-  let weekStart = document.getElementById("week_start").value;
   let day = document.getElementById("day").value;
 
   // Check if both inputs have values
-  if (weekStart && day && meal) {
+  if (day && meal) {
     document.getElementById("submitButton").disabled = false; // Enable submit button
   } else {
     document.getElementById("submitButton").disabled = true; // Disable submit button
@@ -124,10 +73,6 @@ function validateMealPlannerForm(meal) {
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/meal-planner-form") {
-    // Disable the add button
-    document.getElementById("submitButton").disabled = true;
-    // Get the sundays dropdown
-    populateSundaysDropdown();
     let meal;
     let radioButtons = document.querySelectorAll(".form-check-input");
     radioButtons.forEach((button) => {
@@ -140,9 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("change", (event) => {
       validateMealPlannerForm(meal);
     });
-  }
-  if (window.location.pathname === "/meal-planner") {
-    // Get the sundays dropdown
-    populateSundaysDropdown();
   }
 });

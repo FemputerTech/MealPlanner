@@ -2,17 +2,6 @@
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <div class="meal-planner-section">
   <h1>Meal Planner</h1>
-  <form class="sunday-form" method="GET" action="{{ url_for('meal-planner') }}">
-    <div>
-      <label for="week_start">Week of:</label>
-      <select
-        id="week_start"
-        name="week_start"
-        aria-label="select the starting day of week you want to start the meal plan"
-      ></select>
-    </div>
-    <button class="submit-button" , type="submit">Submit</button>
-  </form>
   <table>
     <thead>
       <tr>

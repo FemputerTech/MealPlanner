@@ -9,10 +9,10 @@ class Model():
 
     Methods:
     -------
-    select_recipe(selected_week):
-        Retrieves all recipes from the database for a selected week.
+    select():
+        Retrieves all recipes from the database.
     
-    insert_recipe(recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    insert_recipe(recipe_id, recipe_title, recipe_url, recipe_day, recipe_meal):
         Inserts a recipe into the database.
 
     delete(id):
@@ -20,24 +20,19 @@ class Model():
     """
 
 
-    def select_recipe(self, selected_week):
+    def select(self):
         """
-        Retrieves all recipes from the database for a selected week.
+        Retrieves all recipes from the database.
         
-        Parameters:
-        ----------
-        selected_week: str
-            The starting date of the selected week.
-
         Returns:
         -------
         tuple
-            A tuple containing all rows of recipes from the database for the selected week.
+            A tuple containing all rows of recipes from the database.
         """
         pass
 
 
-    def insert_recipe(self, recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal):
+    def insert_recipe(self, recipe_id, recipe_title, recipe_url, recipe_day, recipe_meal):
         """
         Inserts recipes into database.
 
@@ -49,10 +44,6 @@ class Model():
             The title of the recipe.
         recipe_url: str
             The URL of the recipe.
-        recipe_week_start: str
-            The starting date of the week the recipe is planned for.
-        recipe_week_end: str
-            The end date of the week the recipe is planned for.
         recipe_day: str
             The day of the week the recipe is planned for.
         recipe_meal: str

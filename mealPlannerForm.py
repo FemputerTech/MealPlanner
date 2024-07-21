@@ -54,17 +54,9 @@ class MealPlannerForm(MethodView):
         recipe_id = request.form.get('recipe_id')
         recipe_title = request.form.get('recipe_title')
         recipe_url = request.form.get('recipe_url')
-        recipe_week_start = request.form.get('week_start')
         recipe_day = request.form.get('day')
         recipe_meal = request.form.get('meal')
 
-        recipe_week_start = datetime.strptime(recipe_week_start, '%a %b %d %Y')
-        recipe_week_end = recipe_week_start + timedelta(days=6)
-
-        # formmatting to strings
-        recipe_week_start = recipe_week_start.strftime('%a %b %d %Y')
-        recipe_week_end = recipe_week_end.strftime('%a %b %d %Y')
-
         model = mpmodel.get_model()
-        model.insert_recipe(recipe_id, recipe_title, recipe_url, recipe_week_start, recipe_week_end, recipe_day, recipe_meal)
+        model.insert_recipe(recipe_id, recipe_title, recipe_url, recipe_day, recipe_meal)
         return redirect(url_for('search'))
