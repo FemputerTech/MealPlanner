@@ -507,7 +507,7 @@ nav {
 /* ****************** Meal Planner ****************** */
 .meal-planner-section {
   margin: 50px 100px;
-  height: 100vh;
+  min-height: 600px;
 }
 
 .days {
