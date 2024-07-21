@@ -11,25 +11,19 @@
       alt="{{ recipe_title }}"
       style="padding-bottom: 10px"
     />
-    <h2 class="recipe-title nunito-sans-semibold">{{ recipe_title }}</h2>
+    <h2 class="recipe-title">{{ recipe_title }}</h2>
   </div>
   <div class="form-section">
     <form method="POST" action="/meal-planner-form">
       <div class="form-intro">
         <div class="form-title-container">
-          <h2 class="form-title nunito-sans-semibold">
-            Add this recipe to your meal planner
-          </h2>
+          <h2 class="form-title">Add this recipe to your meal planner</h2>
           <div class="button-container">
-            <button
-              class="add-button nunito-sans-semibold"
-              type="submit"
-              id="submitButton"
-            >
+            <button class="add-button" type="submit" id="submitButton">
               Add
             </button>
             <button
-              class="close-button nunito-sans-semibold"
+              class="close-button"
               type="button"
               onclick="window.location.href='/search'"
             >
@@ -37,20 +31,20 @@
             </button>
           </div>
         </div>
-        <p class="nunito-sans-light">Read and fill in the inputs</p>
+        <p>Read and fill in the inputs</p>
       </div>
       <input type="hidden" name="recipe_id" value="{{ recipe_id }}" />
       <input type="hidden" name="recipe_title" value="{{ recipe_title }}" />
       <input type="hidden" name="recipe_url" value="{{ recipe_url }}" />
       <div class="form-content">
         <select
-          class="form-select nunito-sans-regular"
+          class="form-select"
           id="week_start"
           name="week_start"
           aria-label="Select the starting day of week you want to start the meal plan"
         ></select>
         <select
-          class="form-select nunito-sans-regular"
+          class="form-select"
           id="day"
           name="day"
           aria-label="Select a day of the week"
@@ -65,11 +59,9 @@
           <option value="saturday">Saturday</option>
         </select>
         <fieldset class="meal-type-fieldset">
-          <legend class="form-label nunito-sans-regular">
-            What type of meal is this for?
-          </legend>
+          <legend class="form-label">What type of meal is this for?</legend>
           {% for meal in ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'] %}
-          <div class="form-check nunito-sans-semibold">
+          <div class="form-check">
             <div class="form-check-content">
               <input
                 class="form-check-input"

@@ -24,9 +24,7 @@
         <input type="hidden" name="image" value="{{ recipe.recipe.image }}" />
         <input type="hidden" name="url" value="{{ recipe.recipe.url }}" />
         <input type="hidden" name="ref" value="{{ recipe._links.self.href }}" />
-        <button class="card-save-button nunito-sans-semibold" type="submit">
-          Save
-        </button>
+        <button class="card-save-button" type="submit">Save</button>
       </form>
     </div>
     {% endfor %}

@@ -1,10 +1,10 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
 <div class="meal-planner-section">
-  <h1 class="nunito-sans-semibold">Meal Planner</h1>
+  <h1>Meal Planner</h1>
   <form class="sunday-form" method="GET" action="{{ url_for('meal-planner') }}">
     <div>
-      <label class="nunito-sans-regular" for="week_start">Week of:</label>
+      <label for="week_start">Week of:</label>
       <select
         id="week_start"
         name="week_start"
@@ -13,7 +13,7 @@
     </div>
     <button class="submit-button" , type="submit">Submit</button>
   </form>
-  <table class="nunito-sans-regular">
+  <table>
     <thead>
       <tr>
         <th>
