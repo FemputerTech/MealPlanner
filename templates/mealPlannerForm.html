@@ -1,42 +1,16 @@
 <!-- extend base template -->
 {% extends "base.html" %}MealPlannerForm{% block content %}
-<div class="meal-planner-form-section">
-  <div
-    class="form-recipe-section"
-    onclick="window.open('{{ recipe_url }}', '_blank')"
-  >
-    <img
-      class="recipe-image"
-      src="{{ recipe_image }}"
-      alt="{{ recipe_title }}"
-      style="padding-bottom: 10px"
-    />
-    <h2 class="recipe-title">{{ recipe_title }}</h2>
-  </div>
-  <div class="form-section">
-    <form method="POST" action="/meal-planner-form">
-      <div class="form-intro">
-        <div class="form-title-container">
-          <h2 class="form-title">Add this recipe to your meal planner</h2>
-          <div class="button-container">
-            <button class="add-button" type="submit" id="submitButton">
-              Add
-            </button>
-            <button
-              class="close-button"
-              type="button"
-              onclick="window.location.href='/search'"
-            >
-              Close
-            </button>
-          </div>
+<setion class="meal-planner-form-section">
+  <div class="meal-planner-form">
+    <div class="form-content">
+      <form method="POST" action="/meal-planner-form">
+        <div class="form-intro">
+          <h2 class="form-title">Add recipe to meal planner</h2>
+          <p>Read and fill out the inputs</p>
         </div>
-        <p>Read and fill in the inputs</p>
-      </div>
-      <input type="hidden" name="recipe_id" value="{{ recipe_id }}" />
-      <input type="hidden" name="recipe_title" value="{{ recipe_title }}" />
-      <input type="hidden" name="recipe_url" value="{{ recipe_url }}" />
-      <div class="form-content">
+        <input type="hidden" name="recipe_id" value="{{ recipe_id }}" />
+        <input type="hidden" name="recipe_title" value="{{ recipe_title }}" />
+        <input type="hidden" name="recipe_url" value="{{ recipe_url }}" />
         <select
           class="form-select"
           id="week_start"
@@ -62,23 +36,46 @@
           <legend class="form-label">What type of meal is this for?</legend>
           {% for meal in ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'] %}
           <div class="form-check">
-            <div class="form-check-content">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="meal"
-                id="{{ meal }}"
-                value="{{ meal }}"
-              />
-              <label class="form-check-label" for="{{ meal }}"
-                >{{ meal|capitalize }}</label
-              >
-            </div>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="meal"
+              id="{{ meal }}"
+              value="{{ meal }}"
+            />
+            <label class="form-check-label" for="{{ meal }}"
+              >{{ meal|capitalize }}</label
+            >
           </div>
           {% endfor %}
         </fieldset>
+        <div class="meal-planner-form-buttons">
+          <button class="add-button" type="submit" id="submitButton">
+            Add
+          </button>
+          <button
+            class="close-button"
+            type="button"
+            onclick="window.location.href='/search'"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="form-recipe-content"
+      onclick="window.open('{{ recipe_url }}', '_blank')"
+    >
+      <img
+        class="recipe-image"
+        src="{{ recipe_image }}"
+        alt="{{ recipe_title }}"
+      />
+      <div class="recipe-title">
+        <h2>{{ recipe_title }}</h2>
       </div>
-    </form>
+    </div>
   </div>
-</div>
+</setion>
 {% endblock %}

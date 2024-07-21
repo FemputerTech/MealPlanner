@@ -42,6 +42,7 @@ class Search(MethodView):
         response : str
             The rendered HTML template for the search page.
         """
+        print("searching...")
         search_results = self.search_recipes("recipes")
         if search_results:
             recipes = search_results.get('hits', [])
@@ -51,6 +52,7 @@ class Search(MethodView):
 
 
     def post(self):
+        
         query = request.form.get('query')
         meal_type = request.form.get('meal-type')
         cuisine_type = request.form.get('cuisine-type')

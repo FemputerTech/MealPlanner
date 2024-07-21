@@ -12,7 +12,7 @@
 }
 
 :root {
-  --primary-color: #ff3c1a;
+  --primary-color: #ff5b3f;
   --body-color: #fffcfb;
   --body-color-alt: #f7eeee;
   --background-dark: #c5bebe;
@@ -315,7 +315,6 @@ nav {
   display: flex;
   flex-direction: column;
   border-radius: var(--card-border-radius);
-  /* background-color: #f8f8f8; */
   cursor: zoom-in;
   transition: transform 0.2s;
   margin: 15px 10px;
@@ -367,138 +366,142 @@ nav {
 .card-save-button {
   background-color: var(--primary-color);
   color: var(--text-light);
-  padding: 14px 28px;
+  font-weight: 700;
   border-radius: 50px;
   border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   cursor: pointer;
   margin: 10px;
+  padding: 14px 28px;
 }
 
 .card-item:hover .card-save {
   display: block;
 }
 
-/* ****************** Meal Plan Form Styling ****************** */
+/* ****************** Meal Plan Form ****************** */
+/* Left Side */
 .meal-planner-form-section {
   display: flex;
-  background-color: #f8f8f8;
-  border-radius: 50px;
-}
-
-.form-recipe-section {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
-  border-radius: 50px 0 0 50px;
-  min-width: 300px;
-  max-width: 400px;
-  margin: 0;
+  margin: 50px;
 }
 
-.form-recipe-section:hover {
+.meal-planner-form {
+  display: flex;
+  background-color: white;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  min-height: 600px;
+}
+
+.form-content {
+  padding: 50px;
+  width: 50%;
+}
+
+.form-intro {
+  margin-bottom: 50px;
+}
+
+.form-intro h2 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.form-select {
+  background-color: var(--body-color-alt);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.meal-type-fieldset {
+  border: 2px solid var(--body-color-alt);
+  padding: 10px;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+}
+
+.meal-planner-form-buttons {
+  display: flex;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.add-button,
+.close-button {
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 700;
+  width: 140px;
+  height: 44px;
+}
+
+.add-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+}
+
+.close-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+#submitButton:disabled {
+  background-color: #c9c2c2; /* Light gray when disabled */
+  cursor: not-allowed;
+}
+
+/* Right Side */
+.form-recipe-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px;
+  width: 50%;
+}
+
+.form-recipe-content:hover {
   cursor: zoom-in;
   filter: grayscale(10%) brightness(70%);
   opacity: 90%;
 }
 
 .recipe-image {
-  border-radius: 50px 0 0 0;
+  border-radius: 50px 0 50px 0;
+  object-fit: cover;
+  height: 100%;
   width: 100%;
-  height: 60%;
 }
 
 .recipe-title {
-  margin: 32px;
-  color: var(--text-light);
-}
-
-.recipe-title:hover {
-  transform: scale(1.05);
-}
-
-.form-section {
-  padding: 50px;
-  width: 100%;
-}
-
-.form-intro {
-  margin-bottom: 40px;
-}
-
-.form-title-container {
-  display: flex;
-  justify-content: space-between;
-}
-.form-title {
-  margin: 10px 0;
-}
-
-.button-container {
-  display: flex;
-}
-
-.close-button,
-.add-button {
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  margin: 5px;
-  width: 80px;
-  height: 50px;
-}
-
-.add-button {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-}
-.close-button {
-  background-color: black;
-  color: #e1e1e1;
-}
-
-#submitButton:disabled {
-  background-color: lightgray; /* Light gray when disabled */
-  cursor: not-allowed;
-}
-
-.form-select {
-  display: flex;
-  font-size: 18px;
-  background-color: #f1f1f1;
-  border-radius: 20px;
-  border: none;
+  position: absolute;
+  background: linear-gradient(to bottom, transparent 0%, black 70%, black 100%);
+  border-radius: 50px 0 50px 0;
+  margin: 20px;
   padding: 20px;
-  margin: 20px 0;
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.form-check-content {
-  display: flex;
-  align-items: center;
-  border: none;
-}
-
-.form-check-input {
-  /* Hide the default browser styles */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #f1f1f1;
-  margin: 0 10px;
-}
-
-.form-check-input:hover {
-  cursor: pointer;
-  background-color: #e1e1e1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-check-input:checked {
-  background-color: var(--primary-color);
+.recipe-title h2 {
+  position: absolute;
+  color: white;
+  bottom: 30%;
 }
 
 /* ****************** Meal Planner Styling ****************** */
